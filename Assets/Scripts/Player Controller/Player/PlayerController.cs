@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour {
     public Rigidbody playerBody;
 
     public float speed = 12f;
+    public float drag = 6f;
 
     [System.NonSerialized]
     public Vector3 playerVelocity;
