@@ -13,8 +13,8 @@ public class Move : MonoBehaviour {
     void Update() {
         player.playerBody.drag = player.drag;
 
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveZ = Input.GetAxisRaw("Vertical");
 
         Vector3 moveDirection = transform.forward * moveZ + transform.right * moveX;
         player.playerVelocity = moveDirection;

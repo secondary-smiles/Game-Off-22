@@ -8,12 +8,16 @@ public class PlayerController : MonoBehaviour {
     public float speed = 12f;
     public float drag = 6f;
 
+    public float movementMultiplier = 10f;
+
     [System.NonSerialized]
     public Vector3 playerVelocity;
 
     // Start is called before the first frame update
     void Start() {
         playerBody.freezeRotation = true;
+
+        StartupAddComponents();
     }
 
     // Update is called once per frame
@@ -26,6 +30,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     void MovePlayer() {
-        playerBody.AddForce(playerVelocity.normalized * speed, ForceMode.Acceleration);
+        playerBody.AddForce(playerVelocity.normalized * speed * movementMultiplier, ForceMode.Acceleration);
+    }
+
+    void StartupAddComponents() {
+        gameObject.AddComponent<Move>();
     }
 }
