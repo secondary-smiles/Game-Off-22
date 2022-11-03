@@ -27,7 +27,7 @@ public class CameraMouseLook : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
         // Rotate entire player around Y axis
-        PlayerBody.Rotate(Vector3.down * mouseX);
+        PlayerBody.Rotate(Vector3.up * mouseX);
     }
 }
  
