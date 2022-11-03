@@ -709,9 +709,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b5f157165be4275a485a8d5cae1e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBody: {fileID: 1265419475}
   speed: 12
   drag: 12
+  gravity: 200
   movementMultiplier: 20
 --- !u!114 &1265419477
 MonoBehaviour:
