@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags:
-  - groundCheck
+  - Ground
 --- !u!65 &67389180
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -246,7 +246,6 @@ GameObject:
   - component: {fileID: 315074869}
   - component: {fileID: 315074868}
   - component: {fileID: 315074867}
-  - component: {fileID: 315074870}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -320,20 +319,6 @@ Transform:
   m_Father: {fileID: 1265419474}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &315074870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 315074866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a69b462397144fd0a555176549d42c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerBody: {fileID: 1265419474}
-  mouseSensitivity: 1500
 --- !u!1 &319289636
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,7 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags:
-  - groundCheck
+  - Ground
 --- !u!65 &319289638
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -669,6 +654,7 @@ GameObject:
   - component: {fileID: 1265419474}
   - component: {fileID: 1265419475}
   - component: {fileID: 1265419476}
+  - component: {fileID: 1265419477}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -727,6 +713,21 @@ MonoBehaviour:
   speed: 12
   drag: 12
   movementMultiplier: 20
+--- !u!114 &1265419477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265419473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a69b462397144fd0a555176549d42c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCam: {fileID: 0}
+  mouseSensitivity: 70
+  yLookInverted: 0
 --- !u!1 &1796738816
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,7 +839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags:
-  - groundCheck
+  - Ground
 --- !u!1 &2117901965
 GameObject:
   m_ObjectHideFlags: 0

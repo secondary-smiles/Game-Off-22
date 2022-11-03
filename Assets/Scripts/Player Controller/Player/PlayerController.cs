@@ -35,5 +35,6 @@ public class PlayerController : MonoBehaviour {
 
     void StartupAddComponents() {
         gameObject.AddComponent<Move>();
+        gameObject.AddComponent<Gravity>();
     }
 }
