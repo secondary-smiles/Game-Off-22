@@ -16,8 +16,16 @@ public class PlayerController : MonoBehaviour {
     [System.NonSerialized]
     public Vector3 playerVelocity;
 
-    [System.NonSerialized]
-    public bool isGrounded;
+    [SerializeField]
+    private float playerHeight;
+
+    private bool grounded;
+
+    public bool isGrounded {
+        get { return CheckIsGrounded(); }
+        set { grounded = value; }
+    }
+
 
     // Start is called before the first frame update
     void Start() {
@@ -28,19 +36,30 @@ public class PlayerController : MonoBehaviour {
         _startupAddComponents();
     }
 
+    private void Update() {
+        Debug.Log(isGrounded);
+    }
+
     private void FixedUpdate() {
         MovePlayer();
         ApplyGravity();
     }
+
 
     void MovePlayer() {
         playerBody.AddForce(movementMultiplier * speed * playerVelocity.normalized, ForceMode.Acceleration);
     }
 
     void ApplyGravity() {
-        Vector3 gravityVelocity = new Vector3(0, -1.0f, 0) * playerBody.mass * gravity;
+        Vector3 gravityVelocity = gravity * movementMultiplier * playerBody.mass * new Vector3(0, -1.0f, 0);
 
         playerBody.AddForce(gravityVelocity);
+    }
+
+    bool CheckIsGrounded() {
+        CapsuleCollider collider = GetComponentInChildren<CapsuleCollider>();
+        bool check = Physics.Raycast(collider.transform.position, Vector3.down, playerHeight/2 + 0.01f);
+        return check;
     }
 
     void _startupAddComponents() {
