@@ -11,12 +11,15 @@ public class Move : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        player.playerBody.drag = player.drag;
-
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
 
         Vector3 moveDirection = transform.forward * moveZ + transform.right * moveX;
-        player.playerVelocity = moveDirection;
+        player.playerMoveVelocity = moveDirection;
+    }
+
+    private void FixedUpdate() {
+        float airSpeedMultiplier = player.isGrounded ? 1 : player.airSpeed;
+        player.playerBody.AddForce(player.movementMultiplier * player.speed * airSpeedMultiplier * player.playerMoveVelocity.normalized, ForceMode.Acceleration);
     }
 }

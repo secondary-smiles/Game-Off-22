@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     public float speed = 12f;
-    public float drag = 12f;
+    public float airSpeed = 0.2f;
     public float gravity = 9.8f;
+    public float drag = 12f;
+    public float jump = 12f;
 
     public float movementMultiplier = 20f;
 
@@ -14,7 +16,10 @@ public class PlayerController : MonoBehaviour {
     public Rigidbody playerBody;
 
     [System.NonSerialized]
-    public Vector3 playerVelocity;
+    public Vector3 playerMoveVelocity;
+
+    [System.NonSerialized]
+    public Vector3 playerJumpVelocity;
 
     [SerializeField]
     private float playerHeight;
@@ -24,6 +29,14 @@ public class PlayerController : MonoBehaviour {
     public bool isGrounded {
         get { return CheckIsGrounded(); }
         set { grounded = value; }
+    }
+
+    public float playerDrag {
+        get { return drag; }
+        set {
+            drag = value;
+            playerBody.drag = value;
+        }
     }
 
 
@@ -37,14 +50,8 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        MovePlayer();
+        playerDrag = drag;
         ApplyGravity();
-        print(isGrounded);
-    }
-
-
-    void MovePlayer() {
-        playerBody.AddForce(movementMultiplier * speed * playerVelocity.normalized, ForceMode.Acceleration);
     }
 
     void ApplyGravity() {

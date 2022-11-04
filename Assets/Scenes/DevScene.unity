@@ -678,8 +678,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
-  drag: 12
+  airSpeed: 0.5
   gravity: 12.74
+  drag: 12
+  jump: 1
   movementMultiplier: 20
   playerHeight: 2
 --- !u!114 &1265419477
