@@ -25,12 +25,8 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private float playerHeight;
 
-    bool _grounded;
-
-    public bool isGrounded {
-        get { return CheckIsGrounded(); }
-        set { _grounded = value; }
-    }
+    public bool isGrounded => CheckIsGrounded();
+    public bool isGroundedRaw => CheckIsGroundedRaw();
 
     float _currentDrag;
     public float playerDrag {
@@ -61,14 +57,13 @@ public class PlayerController : MonoBehaviour {
         playerBody.AddForce(gravityVelocity);
     }
 
-    bool CheckIsGrounded() {
+    private bool CheckIsGrounded() {
         CapsuleCollider collider = GetComponentInChildren<CapsuleCollider>();
         Ray ray = new Ray(collider.transform.position, Vector3.down);
         RaycastHit hit;
         float distance = playerHeight / 2 + 0.01f;
         bool check = Physics.Raycast(ray, out hit, distance);
         if (check) {
-            print("checking");
             try {
                 return hit.collider.gameObject.GetComponent<Tags>().hasTag("Ground");
             } catch (System.Exception) {
@@ -76,6 +71,15 @@ public class PlayerController : MonoBehaviour {
             }
         }
         return false;
+    }
+
+    private bool CheckIsGroundedRaw() {
+        CapsuleCollider collider = GetComponentInChildren<CapsuleCollider>();
+        Ray ray = new Ray(collider.transform.position, Vector3.down);
+        float distance = playerHeight / 2 + 0.01f;
+        bool check = Physics.Raycast(ray, distance);
+
+        return check;
     }
 
     void _startupAddComponents() {
