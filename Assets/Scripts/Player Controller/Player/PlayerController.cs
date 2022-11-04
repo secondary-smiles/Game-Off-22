@@ -36,13 +36,10 @@ public class PlayerController : MonoBehaviour {
         _startupAddComponents();
     }
 
-    private void Update() {
-        Debug.Log(isGrounded);
-    }
-
     private void FixedUpdate() {
         MovePlayer();
         ApplyGravity();
+        print(isGrounded);
     }
 
 
@@ -58,11 +55,21 @@ public class PlayerController : MonoBehaviour {
 
     bool CheckIsGrounded() {
         CapsuleCollider collider = GetComponentInChildren<CapsuleCollider>();
-        bool check = Physics.Raycast(collider.transform.position, Vector3.down, playerHeight/2 + 0.01f);
-        return check;
+        Ray ray = new Ray(collider.transform.position, Vector3.down);
+        RaycastHit hit;
+        float distance = playerHeight / 2 + 0.01f;
+        bool check = Physics.Raycast(ray, out hit, distance);
+        if (check) {
+            if (hit.collider.gameObject.GetComponent<Tags>().hasTag("Ground")) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     void _startupAddComponents() {
         gameObject.AddComponent<Move>();
+        gameObject.AddComponent<Jump>();
     }
 }
