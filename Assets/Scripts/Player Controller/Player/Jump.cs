@@ -16,6 +16,12 @@ public class Jump : MonoBehaviour {
         if (Input.GetButtonDown("Jump")) {
             HandleJump();
         }
+
+        if (player.isGrounded) {
+            player.playerDrag = player.groundDrag;
+        } else {
+            player.playerDrag = player.airDrag;
+        }
     }
 
     private void FixedUpdate() {

@@ -20,6 +20,6 @@ public class Move : MonoBehaviour {
 
     private void FixedUpdate() {
         float airSpeedMultiplier = player.isGrounded ? 1 : player.airSpeed;
-        player.playerBody.AddForce(player.movementMultiplier * player.speed * airSpeedMultiplier * player.playerMoveVelocity.normalized, ForceMode.Acceleration);
+        player.playerBody.AddForce(player.movementMultiplier * player.groundSpeed * airSpeedMultiplier * player.playerMoveVelocity.normalized, ForceMode.Acceleration);
     }
 }

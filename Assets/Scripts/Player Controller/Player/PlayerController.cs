@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    public float speed = 12f;
+    public float groundSpeed = 12f;
     public float airSpeed = 0.2f;
     public float gravity = 9.8f;
-    public float drag = 12f;
+    public float groundDrag = 12f;
+    public float airDrag = 2f;
     public float jump = 12f;
 
     public float movementMultiplier = 20f;
@@ -24,17 +25,18 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private float playerHeight;
 
-    private bool grounded;
+    bool _grounded;
 
     public bool isGrounded {
         get { return CheckIsGrounded(); }
-        set { grounded = value; }
+        set { _grounded = value; }
     }
 
+    float _currentDrag;
     public float playerDrag {
-        get { return drag; }
+        get { return _currentDrag; }
         set {
-            drag = value;
+            _currentDrag = value;
             playerBody.drag = value;
         }
     }
@@ -50,7 +52,6 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        playerDrag = drag;
         ApplyGravity();
     }
 
@@ -67,11 +68,13 @@ public class PlayerController : MonoBehaviour {
         float distance = playerHeight / 2 + 0.01f;
         bool check = Physics.Raycast(ray, out hit, distance);
         if (check) {
-            if (hit.collider.gameObject.GetComponent<Tags>().hasTag("Ground")) {
-                return true;
+            print("checking");
+            try {
+                return hit.collider.gameObject.GetComponent<Tags>().hasTag("Ground");
+            } catch (System.Exception) {
+                return false;
             }
         }
-
         return false;
     }
 

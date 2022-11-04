@@ -677,11 +677,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b5f157165be4275a485a8d5cae1e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12
+  groundSpeed: 12
   airSpeed: 0.5
   gravity: 12.74
-  drag: 12
-  jump: 1
+  groundDrag: 12
+  airDrag: 5
+  jump: 5
   movementMultiplier: 20
   playerHeight: 2
 --- !u!114 &1265419477
