@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour {
 
     public float movementMultiplier = 20f;
 
+    [SerializeField]
+    private float playerHeight;
+
     [System.NonSerialized]
     public Rigidbody playerBody;
 
@@ -22,18 +25,28 @@ public class PlayerController : MonoBehaviour {
     [System.NonSerialized]
     public Vector3 playerJumpVelocity;
 
-    [SerializeField]
-    private float playerHeight;
+    [System.NonSerialized]
+    public bool isJumping;
+
 
     public bool isGrounded => CheckIsGrounded();
     public bool isGroundedRaw => CheckIsGroundedRaw();
 
-    float _currentDrag;
+    private float _currentDrag;
     public float playerDrag {
         get { return _currentDrag; }
         set {
             _currentDrag = value;
             playerBody.drag = value;
+        }
+    }
+
+    private float _currentMass;
+    public float playerMass {
+        get { return _currentMass; }
+        set {
+            _currentMass = value;
+            playerBody.mass = value;
         }
     }
 
@@ -52,7 +65,9 @@ public class PlayerController : MonoBehaviour {
     }
 
     void ApplyGravity() {
-        Vector3 gravityVelocity = gravity * movementMultiplier * playerBody.mass * new Vector3(0, -1.0f, 0);
+        if (isGroundedRaw || isJumping) return;
+        //Vector3 gravityVelocity = gravity * movementMultiplier * new Vector3(0, -1.0f, 0);
+        Vector3 gravityVelocity = Physics.gravity * (gravity - 1) * playerBody.mass;
 
         playerBody.AddForce(gravityVelocity);
     }

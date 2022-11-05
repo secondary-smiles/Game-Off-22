@@ -679,11 +679,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundSpeed: 12
   airSpeed: 0.5
-  gravity: 12.74
+  gravity: 9.8
   groundDrag: 12
   airDrag: 5
-  jump: 5
-  movementMultiplier: 20
+  jump: 10
+  movementMultiplier: 1
   playerHeight: 2
 --- !u!114 &1265419477
 MonoBehaviour:
