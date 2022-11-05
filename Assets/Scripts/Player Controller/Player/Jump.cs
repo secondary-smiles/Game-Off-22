@@ -34,7 +34,6 @@ public class Jump : MonoBehaviour {
 
     void HandleJump() {
         if (!player.isGrounded) return;
-        //player.playerJumpVelocity = player.jump * player.movementMultiplier * transform.up;
         player.playerJumpVelocity.y = Mathf.Sqrt((player.jump * player.movementMultiplier) * 2 * player.gravity);
     }
 }

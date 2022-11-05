@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraMouseLook : MonoBehaviour {
-    public Camera playerCam;
+    public Transform playerCam;
+    public Transform orientation;
 
     public float mouseSensitivity = 1000f;
     public bool yLookInverted = false;
@@ -13,8 +14,6 @@ public class CameraMouseLook : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        playerCam = GetComponentInChildren<Camera>();
-
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -25,12 +24,12 @@ public class CameraMouseLook : MonoBehaviour {
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
         mouseY = yLookInverted ? mouseY : -mouseY;
 
-        yRotation += mouseY * mouseSensitivity;
-        yRotation = Mathf.Clamp(yRotation, -90f, 90f);
+        xRotation += mouseY * mouseSensitivity;
+        xRotation = Mathf.Clamp(yRotation, -90f, 90f);
 
-        xRotation += mouseX * mouseSensitivity;
+        yRotation += mouseX * mouseSensitivity;
 
-        playerCam.transform.localRotation = Quaternion.Euler(yRotation, 0, 0);
-        transform.rotation = Quaternion.Euler(0, xRotation, 0);
+        playerCam.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+        orientation.transform.rotation = Quaternion.Euler(0, yRotation, 0);
     }
 }

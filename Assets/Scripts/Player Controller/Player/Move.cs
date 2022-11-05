@@ -14,7 +14,7 @@ public class Move : MonoBehaviour {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
 
-        Vector3 moveDirection = transform.forward * moveZ + transform.right * moveX;
+        Vector3 moveDirection = player.orientation.forward * moveZ + player.orientation.right * moveX;
         player.playerMoveVelocity = moveDirection;
     }
 

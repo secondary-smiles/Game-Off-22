@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-
+    public Transform orientation;
     public float groundSpeed = 12f;
     public float airSpeed = 0.2f;
     public float gravity = 9.8f;
@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    private float gravityMultiplier = 1f;
 
     // Start is called before the first frame update
     void Start() {
@@ -60,15 +61,21 @@ public class PlayerController : MonoBehaviour {
         _startupAddComponents();
     }
 
+    private void Update() {
+        gameObject.transform.rotation = orientation.rotation;
+    }
+
     private void FixedUpdate() {
         ApplyGravity();
     }
 
     void ApplyGravity() {
         if (isGroundedRaw || isJumping) return;
-        //Vector3 gravityVelocity = gravity * movementMultiplier * new Vector3(0, -1.0f, 0);
-        Vector3 gravityVelocity = Physics.gravity * (gravity - 1) * playerBody.mass;
+        if (isGroundedRaw) gravityMultiplier = 1f;
 
+        Vector3 gravityVelocity = (gravity - 1) * gravityMultiplier * playerBody.mass * Physics.gravity;
+        gravityMultiplier += (0.1f * movementMultiplier) * Time.fixedDeltaTime;
+        gravityMultiplier = Mathf.Clamp(gravityMultiplier, 1, 10);
         playerBody.AddForce(gravityVelocity);
     }
 
