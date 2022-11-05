@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class CameraMouseLook : MonoBehaviour {
@@ -20,16 +21,16 @@ public class CameraMouseLook : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-        mouseY = yLookInverted ? mouseY : -mouseY;
+        float mouseX = Input.GetAxisRaw("Mouse X");
+        float mouseY = Input.GetAxisRaw("Mouse Y");
+        mouseY = yLookInverted ? -mouseY : mouseY;
 
-        xRotation += mouseY * mouseSensitivity;
-        xRotation = Mathf.Clamp(yRotation, -90f, 90f);
+        yRotation += mouseX * mouseSensitivity * Time.deltaTime;
+        xRotation -= mouseY * mouseSensitivity * Time.deltaTime;
 
-        yRotation += mouseX * mouseSensitivity;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        playerCam.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+        playerCam.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.transform.rotation = Quaternion.Euler(0, yRotation, 0);
     }
 }

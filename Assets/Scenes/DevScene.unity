@@ -994,7 +994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCam: {fileID: 2113393501}
   orientation: {fileID: 774827408}
-  mouseSensitivity: 70
+  mouseSensitivity: 2000
   yLookInverted: 0
 --- !u!1 &1396532758
 GameObject:
@@ -1169,7 +1169,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {fileID: 1396532759}
-  orientation: {fileID: 774827408}
 --- !u!4 &2113393501
 Transform:
   m_ObjectHideFlags: 0
