@@ -5,7 +5,7 @@ using UnityEngine;
 public class ManagePosition : MonoBehaviour {
     public Transform targetPosition;
     // Update is called once per frame
-    void Update() {
+    void LateUpdate() {
         transform.position = targetPosition.position;
     }
 }

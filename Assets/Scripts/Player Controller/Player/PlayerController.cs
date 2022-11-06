@@ -5,17 +5,26 @@ using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour {
     public Transform orientation;
-    public float groundSpeed = 12f;
-    public float airSpeed = 0.2f;
-    public float gravity = 9.8f;
+    [Header("Ground Movement")]
+    public float walkSpeed = 12f;
+    public float sprintSpeed = 20f;
     public float groundDrag = 12f;
-    public float airDrag = 2f;
-    public float jump = 12f;
 
+    [Header("Air Movement")]
+    public float airSpeed = 0.2f;
+    public float airDrag = 2f;
+
+    [Header("Gravity Params")]
+    public float jumpHeight = 12f;
+    public float gravity = 9.8f;
+
+    [Header("Misc")]
     public float movementMultiplier = 20f;
 
+    [Header("ONLY TOUCH IF YOU KNOW WHAT YOU'RE DOING")]
     [SerializeField]
     private float playerHeight;
+
 
     [System.NonSerialized]
     public Rigidbody playerBody;
@@ -28,6 +37,9 @@ public class PlayerController : MonoBehaviour {
 
     [System.NonSerialized]
     public bool isJumping;
+
+    [System.NonSerialized]
+    public float moveSpeed;
 
 
     public bool isGrounded => CheckIsGrounded();
@@ -61,7 +73,7 @@ public class PlayerController : MonoBehaviour {
         _startupAddComponents();
     }
 
-    private void LateUpdate() {
+    private void Update() {
         gameObject.transform.rotation = orientation.rotation;
     }
 
@@ -70,7 +82,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     void ApplyGravity() {
-        if (isGrounded || isJumping) { gravityMultiplier = 1f; return;  }
+        if (isGrounded || isJumping) { gravityMultiplier = 1f; return; }
 
         Vector3 gravityVelocity = (gravity - 1) * gravityMultiplier * playerBody.mass * Physics.gravity;
         gravityMultiplier += (0.1f * movementMultiplier) * Time.fixedDeltaTime;
@@ -97,5 +109,6 @@ public class PlayerController : MonoBehaviour {
     void _startupAddComponents() {
         gameObject.AddComponent<Move>();
         gameObject.AddComponent<Jump>();
+        gameObject.AddComponent<Sprint>();
     }
 }

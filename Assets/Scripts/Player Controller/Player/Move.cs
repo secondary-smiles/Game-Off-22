@@ -10,7 +10,7 @@ public class Move : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void LateUpdate() {
+    void Update() {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
 
@@ -20,6 +20,6 @@ public class Move : MonoBehaviour {
 
     private void FixedUpdate() {
         float airSpeedMultiplier = player.isGrounded ? 1 : player.airSpeed;
-        player.playerBody.AddForce(player.movementMultiplier * player.groundSpeed * airSpeedMultiplier * player.playerMoveVelocity.normalized, ForceMode.Acceleration);
+        player.playerBody.AddForce(player.movementMultiplier * player.moveSpeed * airSpeedMultiplier * player.playerMoveVelocity.normalized, ForceMode.Acceleration);
     }
 }
