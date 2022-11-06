@@ -20,7 +20,7 @@ public class CameraMouseLook : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    void LateUpdate() {
         float mouseX = Input.GetAxisRaw("Mouse X");
         float mouseY = Input.GetAxisRaw("Mouse Y");
         mouseY = yLookInverted ? -mouseY : mouseY;

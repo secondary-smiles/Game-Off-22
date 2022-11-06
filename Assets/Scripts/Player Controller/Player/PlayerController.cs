@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour {
     public Transform orientation;
@@ -30,7 +31,6 @@ public class PlayerController : MonoBehaviour {
 
 
     public bool isGrounded => CheckIsGrounded();
-    public bool isGroundedRaw => CheckIsGroundedRaw();
 
     private float _currentDrag;
     public float playerDrag {
@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour {
         _startupAddComponents();
     }
 
-    private void Update() {
+    private void LateUpdate() {
         gameObject.transform.rotation = orientation.rotation;
     }
 
@@ -70,8 +70,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     void ApplyGravity() {
-        if (isGroundedRaw || isJumping) return;
-        if (isGroundedRaw) gravityMultiplier = 1f;
+        if (isGrounded || isJumping) { gravityMultiplier = 1f; return;  }
 
         Vector3 gravityVelocity = (gravity - 1) * gravityMultiplier * playerBody.mass * Physics.gravity;
         gravityMultiplier += (0.1f * movementMultiplier) * Time.fixedDeltaTime;
@@ -93,15 +92,6 @@ public class PlayerController : MonoBehaviour {
             }
         }
         return false;
-    }
-
-    private bool CheckIsGroundedRaw() {
-        CapsuleCollider collider = GetComponentInChildren<CapsuleCollider>();
-        Ray ray = new Ray(collider.transform.position, Vector3.down);
-        float distance = playerHeight / 2 + 0.01f;
-        bool check = Physics.Raycast(ray, distance);
-
-        return check;
     }
 
     void _startupAddComponents() {
