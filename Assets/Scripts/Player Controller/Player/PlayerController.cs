@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.XR;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour {
     public Transform orientation;
+    public Transform groundCheckPoint;
+
     [Header("Ground Movement")]
     public float walkSpeed = 12f;
     public float sprintSpeed = 20f;
+    public float timeToSprint = 4f; 
     public float groundDrag = 12f;
 
     [Header("Air Movement")]
@@ -22,6 +26,9 @@ public class PlayerController : MonoBehaviour {
     public float movementMultiplier = 20f;
 
     [Header("ONLY TOUCH IF YOU KNOW WHAT YOU'RE DOING")]
+    [SerializeField]
+    private float groundCheckRadius;
+
     [SerializeField]
     private float playerHeight;
 
@@ -42,7 +49,8 @@ public class PlayerController : MonoBehaviour {
     public float moveSpeed;
 
 
-    public bool isGrounded => CheckIsGrounded();
+    public bool isGrounded => CheckIsGroundedRay();
+    public bool isGroundedOnSlope => CheckIsGroundedSphere();
 
     private float _currentDrag;
     public float playerDrag {
@@ -90,7 +98,19 @@ public class PlayerController : MonoBehaviour {
         playerBody.AddForce(gravityVelocity);
     }
 
-    private bool CheckIsGrounded() {
+    private bool CheckIsGroundedSphere() {
+        Collider[] hitColliders = Physics.OverlapSphere(groundCheckPoint.position, groundCheckRadius);
+        foreach (var hitCollider in hitColliders) {
+            if (hitCollider.gameObject.GetComponent<Tags>()) {
+                if (hitCollider.gameObject.GetComponent<Tags>().hasTag("Ground")) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private bool CheckIsGroundedRay() {
         CapsuleCollider collider = GetComponentInChildren<CapsuleCollider>();
         Ray ray = new Ray(collider.transform.position, Vector3.down);
         RaycastHit hit;
@@ -110,5 +130,10 @@ public class PlayerController : MonoBehaviour {
         gameObject.AddComponent<Move>();
         gameObject.AddComponent<Jump>();
         gameObject.AddComponent<Sprint>();
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(groundCheckPoint.position, groundCheckRadius);
     }
 }
