@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
     [Header("Ground Movement")]
     public float walkSpeed = 12f;
     public float sprintSpeed = 20f;
-    public float timeToSprint = 4f; 
+    public float timeToSprint = 4f;
     public float groundDrag = 12f;
 
     [Header("Air Movement")]
@@ -48,9 +48,7 @@ public class PlayerController : MonoBehaviour {
     [System.NonSerialized]
     public float moveSpeed;
 
-
-    public bool isGrounded => CheckIsGroundedRay();
-    public bool isGroundedOnSlope => CheckIsGroundedSphere();
+    public Slope isGrounded => PopulateSlope();
 
     private float _currentDrag;
     public float playerDrag {
@@ -90,12 +88,29 @@ public class PlayerController : MonoBehaviour {
     }
 
     void ApplyGravity() {
-        if (isGrounded || isJumping) { gravityMultiplier = 1f; return; }
-
+        if ((isGrounded.grounded && !isGrounded.onSlope) || isJumping) { gravityMultiplier = 1f; return; }
+        if (isGrounded.onSlope) { gravityMultiplier = 1f; }
         Vector3 gravityVelocity = (gravity - 1) * gravityMultiplier * playerBody.mass * Physics.gravity;
         gravityMultiplier += (0.1f * movementMultiplier) * Time.fixedDeltaTime;
         gravityMultiplier = Mathf.Clamp(gravityMultiplier, 1, 10);
         playerBody.AddForce(gravityVelocity);
+    }
+
+    private Slope PopulateSlope() {
+        Slope slope = new Slope(true, Vector3.zero);
+        slope.grounded = CheckIsGroundedSphere();
+        if (slope.grounded) {
+            slope.normal = GetNormal(groundCheckPoint.transform.position);
+        } else {
+            slope.normal = Vector3.up;
+        }
+        return slope;
+    }
+
+    private Vector3 GetNormal(Vector3 start) {
+        RaycastHit hit;
+        Physics.Raycast(start, Vector3.down, out hit);
+        return hit.normal;
     }
 
     private bool CheckIsGroundedSphere() {
@@ -110,29 +125,13 @@ public class PlayerController : MonoBehaviour {
         return false;
     }
 
-    private bool CheckIsGroundedRay() {
-        CapsuleCollider collider = GetComponentInChildren<CapsuleCollider>();
-        Ray ray = new Ray(collider.transform.position, Vector3.down);
-        RaycastHit hit;
-        float distance = playerHeight / 2 + 0.01f;
-        bool check = Physics.Raycast(ray, out hit, distance);
-        if (check) {
-            try {
-                return hit.collider.gameObject.GetComponent<Tags>().hasTag("Ground");
-            } catch (System.Exception) {
-                return false;
-            }
-        }
-        return false;
-    }
-
     void _startupAddComponents() {
         gameObject.AddComponent<Move>();
         gameObject.AddComponent<Jump>();
         gameObject.AddComponent<Sprint>();
     }
 
-    private void OnDrawGizmos() {
+    private void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundCheckPoint.position, groundCheckRadius);
     }

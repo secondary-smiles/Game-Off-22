@@ -15,11 +15,14 @@ public class Move : MonoBehaviour {
         float moveZ = Input.GetAxisRaw("Vertical");
 
         Vector3 moveDirection = player.orientation.forward * moveZ + player.orientation.right * moveX;
+        if (player.isGrounded.onSlope) {
+            moveDirection = Vector3.ProjectOnPlane(moveDirection, player.isGrounded.normal);
+        }
         player.playerMoveVelocity = moveDirection;
     }
 
     private void FixedUpdate() {
-        float airSpeedMultiplier = player.isGrounded ? 1 : player.airSpeed;
+        float airSpeedMultiplier = player.isGrounded.grounded ? 1 : player.airSpeed;
         player.playerBody.AddForce(player.movementMultiplier * player.moveSpeed * airSpeedMultiplier * player.playerMoveVelocity.normalized, ForceMode.Acceleration);
     }
 }

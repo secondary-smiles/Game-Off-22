@@ -13,7 +13,7 @@ public class Jump : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (player.isGrounded) {
+        if (player.isGrounded.grounded) {
             player.playerDrag = player.groundDrag;
         } else {
             player.playerDrag = player.airDrag;
@@ -33,7 +33,10 @@ public class Jump : MonoBehaviour {
     }
 
     void HandleJump() {
-        if (!player.isGrounded) return;
+        if (!player.isGrounded.grounded) return;
+
+        if (player.isGrounded.onSlope) {
+        }
         player.playerJumpVelocity.y = Mathf.Sqrt((player.jumpHeight * player.movementMultiplier) * 2 * player.gravity);
     }
 }
