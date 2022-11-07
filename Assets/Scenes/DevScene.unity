@@ -1265,14 +1265,16 @@ MonoBehaviour:
   sprintSpeed: 25
   timeToSprint: 40
   groundDrag: 12
+  groundJumpHeight: 12
+  groundGravity: 9.8
   airSpeed: 0.5
   airDrag: 5
   wallSpeed: 25
-  wallDrag: 2
-  jumpHeight: 12
+  wallDrag: 3
+  wallJumpHeight: 25
+  wallGravity: 1.2
+  currentJumpHeight: 12
   currentGravity: 9.8
-  groundGravity: 9.8
-  wallGravity: 3.2
   movementMultiplier: 10
   groundCheckRadius: 0.501
 --- !u!114 &1265419477

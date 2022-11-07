@@ -15,8 +15,12 @@ public class WallRun : MonoBehaviour {
             player.currentGravity = player.wallGravity;
             player.moveSpeed = player.wallSpeed;
             player.currentDrag = player.wallDrag;
+            player.playerJumpDirection = player.onWall.jumpDirection;
+            player.currentJumpHeight = player.wallJumpHeight;
         } else {
             player.currentGravity = player.groundGravity;
+            player.playerJumpDirection = Vector3.up;
+            player.currentJumpHeight = player.groundJumpHeight;
         }
     }
 }

@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour {
     public float sprintSpeed = 25f;
     public float timeToSprint = 40f;
     public float groundDrag = 12f;
+    public float groundJumpHeight = 12f;
+    public float groundGravity = 9.8f;
 
     [Header("Air Movement")]
     public float airSpeed = 0.5f;
@@ -21,12 +23,12 @@ public class PlayerController : MonoBehaviour {
     [Header("Wall Movement")]
     public float wallSpeed = 16f;
     public float wallDrag = 2f;
-
-    [Header("Gravity Params")]
-    public float jumpHeight = 12f;
-    public float currentGravity = 9.8f;
-    public float groundGravity = 9.8f;
+    public float wallJumpHeight = 20f;
     public float wallGravity = 3.2f;
+
+    [Header("Default Params")]
+    public float currentJumpHeight = 12f;
+    public float currentGravity = 9.8f;
 
     [Header("Misc")]
     public float movementMultiplier = 10f;
@@ -39,6 +41,8 @@ public class PlayerController : MonoBehaviour {
     [System.NonSerialized] public Vector3 playerMoveVelocity;
 
     [System.NonSerialized] public Vector3 playerJumpVelocity;
+
+    [System.NonSerialized] public Vector3 playerJumpDirection = Vector3.up;
 
     [System.NonSerialized] public bool isJumping;
 
@@ -87,7 +91,7 @@ public class PlayerController : MonoBehaviour {
 
     void ApplyGravity() {
         if ((isGrounded.groundedRaw && !isGrounded.onSlope && onWall.side == 0) || isJumping) { gravityMultiplier = 1f; return; }
-        if (isGrounded.onSlope) { gravityMultiplier = 1f; }
+        if (isGrounded.onSlope || onWall.wall) { gravityMultiplier = 1f; }
         Vector3 gravityVelocity = (currentGravity - 1) * gravityMultiplier * playerBody.mass * Physics.gravity;
         gravityMultiplier += (0.1f * movementMultiplier) * Time.fixedDeltaTime;
         gravityMultiplier = Mathf.Clamp(gravityMultiplier, 1, 10);
@@ -107,9 +111,9 @@ public class PlayerController : MonoBehaviour {
     }
 
     private Wall PopulateWall() {
-        Wall wall = new Wall(0);
+        Wall wall = new Wall(0, orientation.transform);
         if (isGrounded.grounded || !CheckTagSphere("Wall")) return wall;
-        wall.side = wall.DetectWall(orientation.transform);
+        wall.side = wall.DetectWall();
         return wall;
     }
 

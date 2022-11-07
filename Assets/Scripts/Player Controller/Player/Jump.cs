@@ -33,10 +33,10 @@ public class Jump : MonoBehaviour {
     }
 
     void HandleJump() {
-        if (!player.isGrounded.grounded) return;
+        if (!player.isGrounded.grounded && !player.onWall.wall) return;
 
         if (player.isGrounded.onSlope) {
         }
-        player.playerJumpVelocity = Mathf.Sqrt((player.jumpHeight * player.movementMultiplier) * 2 * player.currentGravity) * Vector3.up;
+        player.playerJumpVelocity = Mathf.Sqrt((player.currentJumpHeight * player.movementMultiplier) * 2 * player.currentGravity) * player.playerJumpDirection;
     }
 }

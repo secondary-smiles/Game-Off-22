@@ -6,14 +6,18 @@ public class Wall {
     // -1 left, 1 right, 0 null
     public int side;
     public bool wall { get => side != 0; }
-    public Vector3 jumpDirection;
-
-    public Wall(int side) {
-        this.side = side;
-        this.jumpDirection = Vector3.up;
+    public Vector3 jumpDirection {
+        get => pos.up + DetectWallNormal();
     }
 
-    public int DetectWall(Transform pos) {
+    private Transform pos;
+
+    public Wall(int side, Transform pos) {
+        this.side = side;
+        this.pos = pos;
+    }
+
+    public int DetectWall() {
         float distanceRight = 0f;
         float distanceLeft = 0f;
         Ray rayRight = new Ray(pos.position, pos.right);
@@ -30,6 +34,16 @@ public class Wall {
         if (distanceLeft < distanceRight) return -1;
         if (distanceRight < distanceLeft) return 1;
         return 0;
+    }
+
+    private Vector3 DetectWallNormal() {
+        if (side == 0) return Vector3.up;
+
+        Vector3 direction = side == 1 ? pos.right : -pos.right;
+        Ray ray = new Ray(pos.position, direction);
+        RaycastHit hit;
+        Physics.Raycast(ray, out hit);
+        return hit.normal;
     }
 
     private bool CheckHitIsWall(RaycastHit hit) {
