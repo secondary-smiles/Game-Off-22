@@ -1269,10 +1269,10 @@ MonoBehaviour:
   groundGravity: 9.8
   airSpeed: 0.5
   airDrag: 5
-  wallSpeed: 25
-  wallDrag: 3
-  wallJumpHeight: 25
-  wallGravity: 1.2
+  wallSpeed: 45
+  wallDrag: 12
+  wallJumpHeight: 14
+  wallGravity: 8
   currentJumpHeight: 12
   currentGravity: 9.8
   movementMultiplier: 10

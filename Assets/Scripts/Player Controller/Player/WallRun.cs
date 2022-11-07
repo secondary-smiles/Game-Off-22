@@ -16,6 +16,7 @@ public class WallRun : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        print(player.onWall.wall);
         if (player.onWall.wall) {
             player.currentGravity = player.wallGravity;
             player.moveSpeed = player.wallSpeed;
