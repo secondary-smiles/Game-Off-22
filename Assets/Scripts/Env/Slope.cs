@@ -5,9 +5,11 @@ using UnityEngine;
 public class Slope {
     public Vector3 normal;
     public bool grounded;
+    public bool groundedRaw;
 
-    public Slope(bool grounded, Vector3 normal) {
+    public Slope(bool grounded, bool groundedRaw, Vector3 normal) {
         this.grounded = grounded;
+        this.groundedRaw = groundedRaw;
         this.normal = normal;
     }
 
