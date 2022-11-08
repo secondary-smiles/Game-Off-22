@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour {
     [Header("Misc")]
     public float gravity = 9.8f;
     public float groundCheckRadius = 0.501f;
+    public float maxWallDistance = 1f;
 
     [System.NonSerialized] public Vector3 moveDirection;
     [System.NonSerialized] public Rigidbody playerBody;
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour {
     [System.NonSerialized] public float verticalMovement;
 
     public Slope slopeData => IsGrounded();
-
+    public Wall wallData;
 
     private float _currentDrag;
     public float currentDrag {
@@ -67,6 +68,8 @@ public class PlayerController : MonoBehaviour {
         }
         Physics.gravity = Vector3.down * gravity;
         transform.rotation = orientation.rotation;
+        wallData = new Wall(orientation, maxWallDistance);
+        print(wallData.side);
     }
 
     private void CaptureInput() {

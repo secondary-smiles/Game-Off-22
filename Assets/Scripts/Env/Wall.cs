@@ -4,59 +4,58 @@ using UnityEngine;
 
 public class Wall {
     // -1 left, 1 right, 0 null
-    public int side;
-    public bool wall { get => side != 0; }
-    public Vector3 jumpDirection => rawNormal + pos.up;
-    public Vector3 rawNormal;
+    public float side => DetectWall();
+    public bool onWall => side != 0;
 
-    private Transform pos;
-
-    public Wall(int side, Transform pos) {
-        this.side = side;
+    Transform pos;
+    float maxDistance;
+    public Wall(Transform pos, float maxDistance) {
         this.pos = pos;
+        this.maxDistance = maxDistance;
     }
 
-    public int DetectWall() {
-        float distanceRight = 0f;
-        float distanceLeft = 0f;
+
+    public float DetectWall() {
+        float side = 0;
+        if (!CheckTagSphere("Wall")) return side;
+
+        float distanceRight = float.PositiveInfinity;
+        float distanceLeft = float.PositiveInfinity;
+
         Ray rayRight = new Ray(pos.position, pos.right);
         Ray rayLeft = new Ray(pos.position, -pos.right);
+
         RaycastHit hitRight;
         RaycastHit hitLeft;
 
         Physics.Raycast(rayRight, out hitRight);
         Physics.Raycast(rayLeft, out hitLeft);
 
-        if (CheckHitIsWall(hitRight)) { distanceRight = hitRight.distance; }
-        if (CheckHitIsWall(hitLeft)) { distanceLeft = hitLeft.distance; }
+        if (CheckHitIsWall(hitRight.collider)) { distanceRight = hitRight.distance; }
+        if (CheckHitIsWall(hitLeft.collider)) { distanceLeft = hitLeft.distance; }
 
-        if (distanceLeft < distanceRight) {
-            rawNormal = hitLeft.normal;
-            return -1;
-        }
-        if (distanceRight < distanceLeft) {
-            rawNormal = hitRight.normal;
-            return 1;
-        }
-        return 0;
+        if (distanceLeft < distanceRight) side = -1;
+        if (distanceRight < distanceLeft) side = 1;
+        return side;
     }
 
-    private Vector3 DetectWallNormal() {
-        if (side == 0) return Vector3.up;
-
-        Vector3 direction = side == 1 ? pos.right : -pos.right;
-        Ray ray = new Ray(pos.position, direction);
-        RaycastHit hit;
-        Physics.Raycast(ray, out hit);
-        return hit.normal;
-    }
-
-    private bool CheckHitIsWall(RaycastHit hit) {
-        Collider colliderHit = hit.collider;
+    private bool CheckHitIsWall(Collider hit) {
         try {
-            return colliderHit.GetComponent<Tags>().hasTag("Wall");
+            return hit.GetComponent<Tags>().hasTag("Wall");
         } catch (System.Exception) {
             return false;
         }
+    }
+
+    private bool CheckTagSphere(string tag) {
+        Collider[] hitColliders = Physics.OverlapSphere(pos.position, maxDistance);
+        foreach (var hitCollider in hitColliders) {
+            if (hitCollider.gameObject.GetComponent<Tags>()) {
+                if (hitCollider.gameObject.GetComponent<Tags>().hasTag(tag)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
