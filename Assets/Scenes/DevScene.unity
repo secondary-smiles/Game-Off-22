@@ -1544,7 +1544,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1265419476}
-  camFov: 60
+  defaultFov: 80
+  wallRunFov: 90
+  timeToWallRunFov: 5
+  _currentFov: 0
 --- !u!1 &2117901965
 GameObject:
   m_ObjectHideFlags: 0

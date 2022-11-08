@@ -6,13 +6,16 @@ public class FXManager : MonoBehaviour {
     public PlayerController player;
 
     [Header("Defaults")]
-    public float camFov = 60f;
+    public float defaultFov = 80f;
 
     [Header("Wall Run FX")]
+    public float wallRunActivateSpeed = 52f;
+    public float wallRunFov = 90f;
+    public float timeToWallRunFov = 200f;
 
     [System.NonSerialized] public Camera cam;
 
-    private float _currentFov;
+    [SerializeField] private float _currentFov;
     public float currentFov {
         get => _currentFov;
         set {
@@ -24,7 +27,7 @@ public class FXManager : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         cam = GetComponentInChildren<Camera>();
-        currentFov = camFov;
+        currentFov = defaultFov;
 
         _StartupAddComponents();
     }

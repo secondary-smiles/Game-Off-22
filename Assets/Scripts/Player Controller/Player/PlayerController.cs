@@ -44,8 +44,11 @@ public class PlayerController : MonoBehaviour {
 
     [System.NonSerialized] public bool wallRunning = false;
 
+    [System.NonSerialized] public Wall wallData;
+
     public Slope slopeData => IsGrounded();
-    public Wall wallData;
+
+    public float forwardsSpeed => Mathf.Abs((playerBody.velocity.z / 1000) * 3600);
 
     private float _currentDrag;
     public float currentDrag {
