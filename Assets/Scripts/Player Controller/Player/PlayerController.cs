@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     public Transform orientation;
+    public Transform groundCheckPoint;
 
     [Header("Movement")]
     public float movementSpeed = 6f;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour {
 
     [Header("Misc")]
     public float gravity = 9.8f;
+    public float groundCheckRadius = 0.501f;
 
     [System.NonSerialized] public Vector3 moveDirection;
     [System.NonSerialized] public Rigidbody playerBody;
@@ -66,24 +68,19 @@ public class PlayerController : MonoBehaviour {
 
     private Slope IsGrounded() {
         Slope slope = new Slope(true, true, Vector3.up);
-        slope.grounded = CheckIsGroundedTag("Ground");
+        slope.grounded = CheckTagSphere("Ground");
         slope.groundedRaw = slope.grounded;
 
         return slope;
     }
 
-    private bool CheckIsGroundedTag(string tag) {
-        Ray ray = new Ray(transform.position, Vector3.down);
-        RaycastHit hit;
-        bool check = Physics.Raycast(ray, out hit, 2 / 2 + 0.01f);
-
-        if (check) {
-            try {
-                if (hit.collider.gameObject.GetComponent<Tags>().hasTag("Ground")) {
+    private bool CheckTagSphere(string tag) {
+        Collider[] hitColliders = Physics.OverlapSphere(groundCheckPoint.position, groundCheckRadius);
+        foreach (var hitCollider in hitColliders) {
+            if (hitCollider.gameObject.GetComponent<Tags>()) {
+                if (hitCollider.gameObject.GetComponent<Tags>().hasTag(tag)) {
                     return true;
                 }
-            } catch (Exception) {
-                return false;
             }
         }
         return false;

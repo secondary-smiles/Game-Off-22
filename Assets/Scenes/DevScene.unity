@@ -1260,6 +1260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {fileID: 774827408}
+  groundCheckPoint: {fileID: 866041938}
   movementSpeed: 6
   groundMovementMultiplier: 10
   airMovementMultiplier: 3
@@ -1267,6 +1268,7 @@ MonoBehaviour:
   groundDrag: 6
   airDrag: 1
   gravity: 39.2
+  groundCheckRadius: 0.501
 --- !u!114 &1265419477
 MonoBehaviour:
   m_ObjectHideFlags: 0
