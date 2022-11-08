@@ -10,7 +10,7 @@ public class Walk : MonoBehaviour {
     }
 
     private void Update() {
-        player.moveDirection = transform.forward * player.verticalMovement + transform.right * player.horizontalMovement;
+        player.moveDirection = player.orientation.forward * player.verticalMovement + player.orientation.right * player.horizontalMovement;
     }
 
     private void FixedUpdate() {

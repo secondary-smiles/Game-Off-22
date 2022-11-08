@@ -7,7 +7,8 @@ public class Look : MonoBehaviour {
     public float sensitivity = 100f;
     public bool yInverted = false;
 
-    Camera cam;
+    [SerializeField] Transform cam;
+    [SerializeField] Transform orientation;
 
     float dampener = 0.01f;
 
@@ -18,7 +19,6 @@ public class Look : MonoBehaviour {
     float yRotation;
 
     private void Start() {
-        cam = gameObject.GetComponentInChildren<Camera>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -26,8 +26,8 @@ public class Look : MonoBehaviour {
     private void Update() {
         CaptureInput();
 
-        cam.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        transform.rotation = Quaternion.Euler(0, yRotation, 0);
+        cam.transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0);
+        orientation.transform.rotation = Quaternion.Euler(0, yRotation, 0);
     }
 
     private void CaptureInput() {

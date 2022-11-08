@@ -20,4 +20,12 @@ public class Slope {
             return false;
         }
     }
+
+    public bool onSlopeRaw {
+        get {
+            if (!groundedRaw) return false;
+            if (normal != Vector3.up) return true;
+            return false;
+        }
+    }
 }
