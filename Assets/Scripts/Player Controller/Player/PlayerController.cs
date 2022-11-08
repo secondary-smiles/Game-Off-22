@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour {
 
     void ApplyGravity() {
         if ((isGrounded.groundedRaw && !isGrounded.onSlope && onWall.side == 0) || isJumping) { gravityMultiplier = 1f; return; }
-        //if (isGrounded.onSlope || onWall.wall) { gravityMultiplier = 1f; }
+        if (isGrounded.onSlope || onWall.wall) { gravityMultiplier = 1f; }
         Vector3 gravityVelocity = (currentGravity - 1) * gravityMultiplier * playerBody.mass * Physics.gravity;
         gravityMultiplier += (0.1f * movementMultiplier) * Time.fixedDeltaTime;
         gravityMultiplier = Mathf.Clamp(gravityMultiplier, 1, 10);

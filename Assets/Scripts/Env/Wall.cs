@@ -6,7 +6,8 @@ public class Wall {
     // -1 left, 1 right, 0 null
     public int side;
     public bool wall { get => side != 0; }
-    public Vector3 jumpDirection;
+    public Vector3 jumpDirection => rawNormal + pos.up;
+    public Vector3 rawNormal;
 
     private Transform pos;
 
@@ -30,11 +31,11 @@ public class Wall {
         if (CheckHitIsWall(hitLeft)) { distanceLeft = hitLeft.distance; }
 
         if (distanceLeft < distanceRight) {
-            jumpDirection = hitLeft.normal + pos.up;
+            rawNormal = hitLeft.normal;
             return -1;
         }
         if (distanceRight < distanceLeft) {
-            jumpDirection = hitRight.normal + pos.up;
+            rawNormal = hitRight.normal;
             return 1;
         }
         return 0;
