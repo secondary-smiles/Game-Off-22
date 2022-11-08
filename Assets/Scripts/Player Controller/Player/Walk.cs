@@ -14,7 +14,7 @@ public class Walk : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        Vector3 velocity = player.moveDirection.normalized * player.movementSpeed * player.movementMultiplier;
+        Vector3 velocity = player.slopeData.MoveDirection(player.movementMultiplier * player.movementSpeed * player.moveDirection.normalized);
         player.playerBody.AddForce(velocity, ForceMode.Acceleration);
     }
 }

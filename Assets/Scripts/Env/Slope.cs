@@ -28,4 +28,8 @@ public class Slope {
             return false;
         }
     }
+
+    public Vector3 MoveDirection(Vector3 direction) {
+        return Vector3.ProjectOnPlane(direction, normal);
+    }
 }

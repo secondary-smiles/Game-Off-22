@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour {
     [System.NonSerialized] public float horizontalMovement;
     [System.NonSerialized] public float verticalMovement;
 
-    public Slope isGrounded => IsGrounded();
+    public Slope slopeData => IsGrounded();
 
 
     private float _currentDrag;
@@ -53,12 +53,13 @@ public class PlayerController : MonoBehaviour {
 
     private void Update() {
         CaptureInput();
-        if (isGrounded.grounded) {
+        if (slopeData.grounded) {
             currentDrag = groundDrag;
             movementMultiplier = groundMovementMultiplier;
         }
         Physics.gravity = Vector3.down * gravity;
         transform.rotation = orientation.rotation;
+        print(slopeData.onSlope); 
     }
 
     private void CaptureInput() {
@@ -69,8 +70,9 @@ public class PlayerController : MonoBehaviour {
     private Slope IsGrounded() {
         Slope slope = new Slope(true, true, Vector3.up);
         slope.grounded = CheckTagSphere("Ground");
-        slope.groundedRaw = slope.grounded;
+        if (!slope.grounded) { slope.groundedRaw = CheckSphere(); }
 
+        if (slope.groundedRaw) { slope.normal = GetNormalDirection(Vector3.down); }
         return slope;
     }
 
@@ -84,6 +86,26 @@ public class PlayerController : MonoBehaviour {
             }
         }
         return false;
+    }
+
+    private bool CheckSphere() {
+        bool returnCheck = false;
+        Collider[] hitColliders = Physics.OverlapSphere(groundCheckPoint.position, groundCheckRadius);
+        foreach (var hitCollider in hitColliders) {
+            if (hitCollider.gameObject.GetComponent<Tags>()) {
+                if (!hitCollider.gameObject.GetComponent<Tags>().hasTag("Entity")) {
+                    returnCheck = true;
+                }
+            }
+        }
+        return returnCheck;
+    }
+
+    private Vector3 GetNormalDirection(Vector3 direction) {
+        Ray ray = new Ray(groundCheckPoint.position, direction);
+        RaycastHit hit;
+        Physics.Raycast(ray, out hit);
+        return hit.normal;
     }
 
     private void _StartupAddComponents() {

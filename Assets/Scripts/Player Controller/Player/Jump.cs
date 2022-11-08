@@ -17,7 +17,7 @@ public class Jump : MonoBehaviour {
     }
 
     private void HandleJump() {
-        if (!player.isGrounded.grounded) return;
+        if (!player.slopeData.grounded) return;
 
         player.currentDrag = player.airDrag;
         player.movementMultiplier = player.airMovementMultiplier;
