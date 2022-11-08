@@ -17,12 +17,11 @@ public class Jump : MonoBehaviour {
     }
 
     private void HandleJump() {
-        if (!player.slopeData.grounded) return;
+        if (!player.slopeData.grounded && !player.wallData.onWall) return;
 
         player.currentDrag = player.airDrag;
         player.movementMultiplier = player.airMovementMultiplier;
-
-        Vector3 velocity = transform.up * player.jumpStrength;
+        Vector3 velocity = player.jumpDirection * player.jumpStrength;
         player.playerBody.AddForce(velocity, ForceMode.Impulse);
     }
 }

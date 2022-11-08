@@ -6,6 +6,7 @@ public class Wall {
     // -1 left, 1 right, 0 null
     public float side => DetectWall();
     public bool onWall => side != 0;
+    public Vector3 wallNormal;
 
     Transform pos;
     float maxDistance;
@@ -34,8 +35,15 @@ public class Wall {
         if (CheckHitIsWall(hitRight.collider)) { distanceRight = hitRight.distance; }
         if (CheckHitIsWall(hitLeft.collider)) { distanceLeft = hitLeft.distance; }
 
-        if (distanceLeft < distanceRight) side = -1;
-        if (distanceRight < distanceLeft) side = 1;
+        if (distanceLeft < distanceRight) {
+            side = -1;
+            wallNormal = hitLeft.normal;
+        }
+        if (distanceRight < distanceLeft) {
+            side = 1;
+            wallNormal = hitRight.normal;
+        }
+
         return side;
     }
 

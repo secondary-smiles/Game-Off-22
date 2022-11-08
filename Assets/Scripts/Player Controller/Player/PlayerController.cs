@@ -17,8 +17,12 @@ public class PlayerController : MonoBehaviour {
     public float sprintSpeed = 12f;
     public float timeToSprint = 10f;
 
+    [Header("Wallrunning")]
+    public float wallRunGravity;
+
     [Header("Jumping")]
     public float jumpStrength = 5f;
+    public Vector3 jumpDirection = Vector3.up;
 
     [Header("Drag")]
     public float groundDrag = 6f;
@@ -49,11 +53,19 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    private bool _useGravity;
+    public bool useGravity {
+        get => _useGravity;
+        set {
+            _useGravity = value;
+            playerBody.useGravity = value;
+        }
+    }
+
     private void Start() {
         _StartupAddComponents();
         playerBody = GetComponent<Rigidbody>();
         playerBody.freezeRotation = true;
-
     }
 
 
@@ -69,7 +81,6 @@ public class PlayerController : MonoBehaviour {
         Physics.gravity = Vector3.down * gravity;
         transform.rotation = orientation.rotation;
         wallData = new Wall(orientation, maxWallDistance);
-        print(wallData.side);
     }
 
     private void CaptureInput() {
@@ -122,5 +133,6 @@ public class PlayerController : MonoBehaviour {
         gameObject.AddComponent<Walk>();
         gameObject.AddComponent<Jump>();
         gameObject.AddComponent<Sprint>();
+        gameObject.AddComponent<WallRun>();
     }
 }
