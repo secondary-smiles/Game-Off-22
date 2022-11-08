@@ -15,7 +15,6 @@ public class WallRun : MonoBehaviour {
         if (!player.slopeData.grounded && player.wallData.onWall) {
             HandleWallrunOn();
         } else {
-            print("else");
             HandleWallrunOff();
         }
     }
