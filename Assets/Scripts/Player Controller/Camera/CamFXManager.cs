@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FXManager : MonoBehaviour {
+public class CamFXManager : MonoBehaviour {
     public PlayerController player;
 
     [Header("Defaults")]
@@ -11,11 +11,12 @@ public class FXManager : MonoBehaviour {
     [Header("Wall Run FX")]
     public float wallRunActivateSpeed = 52f;
     public float wallRunFov = 90f;
-    public float timeToWallRunFov = 200f;
+    public float wallRunTilt = 15f;
+    public float timeToWallRunFX = 5f;
 
     [System.NonSerialized] public Camera cam;
 
-    [SerializeField] private float _currentFov;
+    private float _currentFov;
     public float currentFov {
         get => _currentFov;
         set {
