@@ -56,10 +56,12 @@ public class PlayerController : MonoBehaviour {
         if (slopeData.grounded) {
             currentDrag = groundDrag;
             movementMultiplier = groundMovementMultiplier;
+        } else {
+            currentDrag = airDrag;
+            movementMultiplier = airMovementMultiplier;
         }
         Physics.gravity = Vector3.down * gravity;
         transform.rotation = orientation.rotation;
-        print(slopeData.onSlope); 
     }
 
     private void CaptureInput() {
@@ -111,5 +113,6 @@ public class PlayerController : MonoBehaviour {
     private void _StartupAddComponents() {
         gameObject.AddComponent<Walk>();
         gameObject.AddComponent<Jump>();
+        gameObject.AddComponent<Sprint>();
     }
 }
