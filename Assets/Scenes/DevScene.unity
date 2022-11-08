@@ -1262,9 +1262,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {fileID: 774827408}
   groundCheckPoint: {fileID: 866041938}
-  movementSpeed: 6
+  currentMovementSpeed: 6
   groundMovementMultiplier: 10
   airMovementMultiplier: 3
+  walkSpeed: 6
+  sprintSpeed: 12
+  timeToSprint: 90
   jumpStrength: 17
   groundDrag: 6
   airDrag: 1

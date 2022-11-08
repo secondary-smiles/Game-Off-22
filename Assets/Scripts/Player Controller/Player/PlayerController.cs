@@ -8,9 +8,14 @@ public class PlayerController : MonoBehaviour {
     public Transform groundCheckPoint;
 
     [Header("Movement")]
-    public float movementSpeed = 6f;
+    public float currentMovementSpeed = 6f;
     public float groundMovementMultiplier = 10f;
     public float airMovementMultiplier = 0.5f;
+
+    [Header("Walking and Sprinting")]
+    public float walkSpeed = 6f;
+    public float sprintSpeed = 12f;
+    public float timeToSprint = 10f;
 
     [Header("Jumping")]
     public float jumpStrength = 5f;

@@ -13,11 +13,17 @@ public class Sprint : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (Input.GetKey(KeyCode.LeftShift)) {
-            HandleSprint();
+            HandleSprintOn();
+        } else {
+            HandleSprintOff();
         }
     }
 
-    private void HandleSprint() {
-        print("sprint");
+    private void HandleSprintOn() {
+        player.currentMovementSpeed = Mathf.Lerp(player.currentMovementSpeed, player.sprintSpeed, player.timeToSprint * Time.deltaTime);
+    }
+
+    private void HandleSprintOff() {
+        player.currentMovementSpeed = Mathf.Lerp(player.currentMovementSpeed, player.walkSpeed, player.timeToSprint * Time.deltaTime);
     }
 }
