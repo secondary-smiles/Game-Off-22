@@ -263,7 +263,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 117768215}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.8, y: 4.33, z: -52.899998}
+  m_LocalPosition: {x: -7.7, y: 4.33, z: -52.899998}
   m_LocalScale: {x: 1, y: 15, z: 62.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1202,8 +1202,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1265419474}
   - component: {fileID: 1265419475}
-  - component: {fileID: 1265419476}
-  - component: {fileID: 1265419477}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1247,52 +1245,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 3
---- !u!114 &1265419476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1265419473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b5f157165be4275a485a8d5cae1e3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orientation: {fileID: 774827408}
-  groundCheckPoint: {fileID: 866041938}
-  walkSpeed: 12
-  sprintSpeed: 25
-  timeToSprint: 40
-  groundDrag: 12
-  groundJumpHeight: 12
-  groundGravity: 9.8
-  airSpeed: 0.5
-  airDrag: 5
-  wallSpeed: 45
-  wallDrag: 12
-  wallJumpHeight: 14
-  wallGravity: 8
-  currentJumpHeight: 12
-  currentGravity: 9.8
-  movementMultiplier: 10
-  groundCheckRadius: 0.501
---- !u!114 &1265419477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1265419473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a69b462397144fd0a555176549d42c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCam: {fileID: 2113393501}
-  orientation: {fileID: 774827408}
-  mouseSensitivity: 700
-  yLookInverted: 0
 --- !u!1 &1396532758
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,7 +1397,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2113393501}
-  - component: {fileID: 2113393500}
   m_Layer: 0
   m_Name: Camera Holder
   m_TagString: Untagged
@@ -1453,19 +1404,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2113393500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2113393499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1e1470d0af654c1b811b2236811e520, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetPosition: {fileID: 1396532759}
 --- !u!4 &2113393501
 Transform:
   m_ObjectHideFlags: 0
