@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour {
     [System.NonSerialized] public float horizontalMovement;
     [System.NonSerialized] public float verticalMovement;
 
-    [System.NonSerialized] public bool isJumping = false;
+    [System.NonSerialized] public bool wallRunning = false;
 
     public Slope slopeData => IsGrounded();
     public Wall wallData;

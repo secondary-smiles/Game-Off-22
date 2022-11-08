@@ -25,13 +25,11 @@ public class Jump : MonoBehaviour {
     private void HandleJump() {
         if (!player.slopeData.grounded && !player.wallData.onWall && jumpsLeft <= 0) return;
 
-        player.isJumping = true;
         player.playerBody.velocity = new Vector3(player.playerBody.velocity.x, 0, player.playerBody.velocity.z);
         player.currentDrag = player.airDrag;
         player.movementMultiplier = player.airMovementMultiplier;
         Vector3 velocity = player.jumpDirection * player.jumpStrength;
         player.playerBody.AddForce(velocity, ForceMode.Impulse);
         jumpsLeft--;
-        player.isJumping = false;
     }
 }

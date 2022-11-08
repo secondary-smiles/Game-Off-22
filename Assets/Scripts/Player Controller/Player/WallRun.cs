@@ -13,9 +13,11 @@ public class WallRun : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (!player.slopeData.grounded && player.wallData.onWall) {
+            player.wallRunning = true;
             HandleWallrunOn();
         } else {
             HandleWallrunOff();
+            player.wallRunning = false;
         }
     }
 
