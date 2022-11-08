@@ -21,6 +21,7 @@ public class WallRun : MonoBehaviour {
 
     private void HandleWallrunOn() {
         player.useGravity = false;
+        
         player.playerBody.AddForce(Vector3.down * player.wallRunGravity, ForceMode.Force);
         player.jumpDirection = player.wallData.wallNormal + transform.up;
     }
