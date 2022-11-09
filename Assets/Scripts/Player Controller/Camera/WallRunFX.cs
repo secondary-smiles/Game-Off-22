@@ -40,7 +40,7 @@ public class WallRunFX : MonoBehaviour {
         float parameter = Mathf.InverseLerp(0f, player.maxRecordedSpeed, player.forwardsSpeed);
         parameter = manager.wallRunEasingCurve.Evaluate(parameter);
 
-        manager.currentFov = Mathf.MoveTowards(manager.currentFov, manager.defaultFov, manager.timeToWallRunFX * Time.deltaTime *  (1-parameter));
+        manager.currentFov = Mathf.MoveTowards(manager.currentFov, manager.defaultFov, manager.timeToWallRunFX * Time.deltaTime * (1 - parameter) * 10);
         camTilt = Mathf.Lerp(camTilt, 0, manager.timeToWallRunFX * Time.deltaTime);
     }
 }
