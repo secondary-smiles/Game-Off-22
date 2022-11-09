@@ -9,10 +9,10 @@ public class CamFXManager : MonoBehaviour {
     public float defaultFov = 80f;
 
     [Header("Wall Run FX")]
-    public float wallRunActivateSpeed = 52f;
     public float wallRunFov = 90f;
     public float wallRunTilt = 15f;
     public float timeToWallRunFX = 5f;
+    public AnimationCurve wallRunEasingCurve;
 
     [System.NonSerialized] public Camera cam;
 

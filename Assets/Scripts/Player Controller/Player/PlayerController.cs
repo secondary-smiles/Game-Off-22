@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour {
     public float gravity = 9.8f;
     public float groundCheckRadius = 0.501f;
     public float maxWallDistance = 1f;
-    public float maxSpeed = 110f;
+    public float maxSpeed = 140f;
 
     [System.NonSerialized] public Vector3 moveDirection;
     [System.NonSerialized] public Rigidbody playerBody;
@@ -48,10 +48,13 @@ public class PlayerController : MonoBehaviour {
 
     [System.NonSerialized] public Wall wallData;
 
+    [System.NonSerialized] public float rawMaxRecordedSpeed = 0f;
+    [System.NonSerialized] public float maxRecordedSpeed = 0f;
+
     public Slope slopeData => IsGrounded();
 
     public float forwardsSpeed => Mathf.Abs((playerBody.velocity.z / 1000) * 3600);
-    public float forwardsSpeedRaw => (playerBody.velocity.z / 1000) * 3600;
+    public float rawforwardsSpeed => (playerBody.velocity.z / 1000) * 3600;
 
     private float _currentDrag;
     public float currentDrag {
@@ -98,6 +101,11 @@ public class PlayerController : MonoBehaviour {
             float direction = velocity.z < 0 ? -1 : 1;
             velocity.z = (maxSpeed * 1000 / 3600) * direction;
             playerBody.velocity = velocity;
+        }
+
+        if (forwardsSpeed > maxRecordedSpeed) {
+            maxRecordedSpeed = forwardsSpeed;
+            rawMaxRecordedSpeed = rawforwardsSpeed;
         }
     }
 

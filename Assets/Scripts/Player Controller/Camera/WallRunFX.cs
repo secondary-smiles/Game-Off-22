@@ -26,11 +26,14 @@ public class WallRunFX : MonoBehaviour {
     }
 
     private void WallRunFXOn() {
-        if (player.forwardsSpeed < manager.wallRunActivateSpeed) return;
+        float parameter = Mathf.InverseLerp(0f, player.maxRecordedSpeed, player.forwardsSpeed);
+        parameter = manager.wallRunEasingCurve.Evaluate(parameter);
 
-        manager.currentFov = Mathf.Lerp(manager.currentFov, manager.wallRunFov, manager.timeToWallRunFX * Time.deltaTime);
+        float fovAdditive = Mathf.Abs(manager.defaultFov - manager.wallRunFov) * parameter;
+        float tiltAdditive = manager.wallRunTilt * parameter;
 
-        camTilt = Mathf.Lerp(camTilt, manager.wallRunTilt * player.wallData.side, manager.timeToWallRunFX * Time.deltaTime);
+        manager.currentFov = Mathf.Lerp(manager.currentFov, manager.defaultFov + fovAdditive, manager.timeToWallRunFX * Time.deltaTime);
+        camTilt = Mathf.Lerp(camTilt, tiltAdditive * player.wallData.side, manager.timeToWallRunFX * Time.deltaTime);
     }
 
     private void WallRunFXOff() {
