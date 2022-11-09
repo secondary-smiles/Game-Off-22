@@ -93,14 +93,12 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void LateUpdate() {
-        Vector3 bodyVelocity = playerBody.velocity;
-        if (bodyVelocity.z < 0) {
-            bodyVelocity.z = Mathf.Clamp(forwardsSpeedRaw, -maxSpeed, 0);
-        } else if (bodyVelocity.z > 0) {
-            bodyVelocity.z = Mathf.Clamp(forwardsSpeed, 0, maxSpeed);
+        Vector3 velocity = playerBody.velocity;
+        if (forwardsSpeed > maxSpeed) {
+            float direction = velocity.z < 0 ? -1 : 1;
+            velocity.z = (maxSpeed * 1000 / 3600) * direction;
+            playerBody.velocity = velocity;
         }
-        print(bodyVelocity);
-        playerBody.velocity = bodyVelocity;
     }
 
     private void CaptureInput() {

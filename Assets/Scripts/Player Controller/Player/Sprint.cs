@@ -20,6 +20,7 @@ public class Sprint : MonoBehaviour {
     }
 
     private void HandleSprintOn() {
+        if (!player.slopeData.grounded) return;
         player.currentMovementSpeed = Mathf.Lerp(player.currentMovementSpeed, player.sprintSpeed, player.timeToSprint * Time.deltaTime);
     }
 
