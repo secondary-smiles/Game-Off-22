@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class PlayerController : MonoBehaviour {
     public Transform orientation;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour {
     public float gravity = 9.8f;
     public float groundCheckRadius = 0.501f;
     public float maxWallDistance = 1f;
+    public float maxSpeed = 110f;
 
     [System.NonSerialized] public Vector3 moveDirection;
     [System.NonSerialized] public Rigidbody playerBody;
@@ -49,6 +51,7 @@ public class PlayerController : MonoBehaviour {
     public Slope slopeData => IsGrounded();
 
     public float forwardsSpeed => Mathf.Abs((playerBody.velocity.z / 1000) * 3600);
+    public float forwardsSpeedRaw => (playerBody.velocity.z / 1000) * 3600;
 
     private float _currentDrag;
     public float currentDrag {
@@ -72,8 +75,8 @@ public class PlayerController : MonoBehaviour {
         _StartupAddComponents();
         playerBody = GetComponent<Rigidbody>();
         playerBody.freezeRotation = true;
+        playerBody.velocity = Vector3.zero;
     }
-
 
     private void Update() {
         CaptureInput();
@@ -87,6 +90,17 @@ public class PlayerController : MonoBehaviour {
         Physics.gravity = Vector3.down * gravity;
         transform.rotation = orientation.rotation;
         wallData = new Wall(orientation, maxWallDistance);
+    }
+
+    private void LateUpdate() {
+        Vector3 bodyVelocity = playerBody.velocity;
+        if (bodyVelocity.z < 0) {
+            bodyVelocity.z = Mathf.Clamp(forwardsSpeedRaw, -maxSpeed, 0);
+        } else if (bodyVelocity.z > 0) {
+            bodyVelocity.z = Mathf.Clamp(forwardsSpeed, 0, maxSpeed);
+        }
+        print(bodyVelocity);
+        playerBody.velocity = bodyVelocity;
     }
 
     private void CaptureInput() {
