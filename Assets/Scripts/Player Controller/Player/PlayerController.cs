@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour {
     public float wallRunGravity;
 
     [Header("Jumping")]
-    public float jumpStrength = 17f;
+    public float jumpStrength = 14f;
     public int extraJumps = 1;
     public Vector3 jumpDirection = Vector3.up;
 

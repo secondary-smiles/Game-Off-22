@@ -1269,7 +1269,7 @@ MonoBehaviour:
   sprintSpeed: 12
   timeToSprint: 90
   wallRunGravity: 12
-  jumpStrength: 17
+  jumpStrength: 14
   extraJumps: 1
   jumpDirection: {x: 0, y: 1, z: 0}
   groundDrag: 6
