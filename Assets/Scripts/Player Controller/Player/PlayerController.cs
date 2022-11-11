@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.PlayerLoop;
 
 public class PlayerController : MonoBehaviour {
+    public Animator playerAnimator;
     public Transform orientation;
     public Transform groundCheckPoint;
 
@@ -93,6 +94,8 @@ public class PlayerController : MonoBehaviour {
         Physics.gravity = Vector3.down * gravity;
         transform.rotation = orientation.rotation;
         wallData = new Wall(orientation, maxWallDistance);
+
+        playerAnimator.SetFloat("Speed", forwardsSpeed);
     }
 
     private void LateUpdate() {
