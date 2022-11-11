@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class WallRun : MonoBehaviour {
     PlayerController player;
+
+    bool canCallTrigger = true;
     // Start is called before the first frame update
     void Start() {
         player = GetComponent<PlayerController>();
@@ -19,11 +21,21 @@ public class WallRun : MonoBehaviour {
             HandleWallrunOff();
             player.wallRunning = false;
         }
+
+        player.playerAnimator.SetBool("OnWall", player.wallData.onWall);
     }
 
     private void HandleWallrunOn() {
+        if (canCallTrigger) {
+            if (player.wallData.side == -1) {
+                player.playerAnimator.SetTrigger("Wallrun_L");
+            } else {
+                player.playerAnimator.SetTrigger("Wallrun_R");
+            }
+            canCallTrigger = false;
+        }
         player.useGravity = false;
-        
+
         player.playerBody.AddForce(Vector3.down * player.wallRunGravity, ForceMode.Force);
         player.jumpDirection = player.wallData.wallNormal + transform.up;
     }
@@ -31,5 +43,6 @@ public class WallRun : MonoBehaviour {
     private void HandleWallrunOff() {
         player.useGravity = true;
         player.jumpDirection = transform.up;
+        canCallTrigger = true;
     }
 }
