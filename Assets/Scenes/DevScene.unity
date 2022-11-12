@@ -1683,12 +1683,16 @@ PrefabInstance:
       value: FPArms
       objectReference: {fileID: 0}
     - target: {fileID: 8923726295294495479, guid: 141d6ca307e994bf7ab7572a6ce6e129, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1265419476}
+    - target: {fileID: 8923726295294495479, guid: 141d6ca307e994bf7ab7572a6ce6e129, type: 3}
       propertyPath: smoothing
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8923726295294495479, guid: 141d6ca307e994bf7ab7572a6ce6e129, type: 3}
       propertyPath: swayMultiplier
-      value: 1
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8961539511021403324, guid: 141d6ca307e994bf7ab7572a6ce6e129, type: 3}
       propertyPath: m_RootOrder

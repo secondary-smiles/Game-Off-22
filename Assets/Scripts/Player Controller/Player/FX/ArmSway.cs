@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ArmSway : MonoBehaviour {
+    public PlayerController player;
+
     [Header("Sway")]
     public float smoothing = 8f;
     public float swayMultiplier = 2f;
 
-    float mouseX;
-    float mouseY;
+    float velX;
+    float velY;
 
     // Start is called before the first frame update
     void Start() {
@@ -19,8 +21,8 @@ public class ArmSway : MonoBehaviour {
     void Update() {
         CaptureInput();
 
-        Quaternion rotationX = Quaternion.AngleAxis(-mouseY, Vector3.right);
-        Quaternion rotationY = Quaternion.AngleAxis(mouseX, Vector3.up);
+        Quaternion rotationX = Quaternion.AngleAxis(-velY, Vector3.right);
+        Quaternion rotationY = Quaternion.AngleAxis(velX, Vector3.up);
 
         Quaternion targetRotation = rotationX * rotationY;
 
@@ -28,7 +30,7 @@ public class ArmSway : MonoBehaviour {
     }
 
     private void CaptureInput() {
-        mouseX = Input.GetAxisRaw("Mouse X") * swayMultiplier;
-        mouseY = Input.GetAxisRaw("Mouse Y") * swayMultiplier;
+        velX = player.playerBody.velocity.x * swayMultiplier;
+        velY = player.playerBody.velocity.y * swayMultiplier;
     }
 }
