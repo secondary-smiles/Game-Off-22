@@ -1508,7 +1508,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 543450652041227932}
+  - {fileID: 7851669020603172020}
   - {fileID: 315074869}
   m_Father: {fileID: 2106318158}
   m_RootOrder: 1
@@ -1666,11 +1666,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 7851669019982257253, guid: 141d6ca307e994bf7ab7572a6ce6e129, type: 3}
   m_PrefabInstance: {fileID: 7851669020603172019}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &543450652041227932 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7745067807597062703, guid: 141d6ca307e994bf7ab7572a6ce6e129, type: 3}
-  m_PrefabInstance: {fileID: 7851669020603172019}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7851669020603172019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1678,6 +1673,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2113393501}
     m_Modifications:
+    - target: {fileID: 919132147500938279, guid: 141d6ca307e994bf7ab7572a6ce6e129, type: 3}
+      propertyPath: weapons.Melee
+      value: 
+      objectReference: {fileID: 11400000, guid: 556ea0b49190b46af88ae802c5204446, type: 2}
     - target: {fileID: 6933241660089479317, guid: 141d6ca307e994bf7ab7572a6ce6e129, type: 3}
       propertyPath: m_Name
       value: FPArms
@@ -1704,15 +1703,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7745067807597062703, guid: 141d6ca307e994bf7ab7572a6ce6e129, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7745067807597062703, guid: 141d6ca307e994bf7ab7572a6ce6e129, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7745067807597062703, guid: 141d6ca307e994bf7ab7572a6ce6e129, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7745067807597062703, guid: 141d6ca307e994bf7ab7572a6ce6e129, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1732,3 +1731,8 @@ PrefabInstance:
       objectReference: {fileID: 1265419476}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 141d6ca307e994bf7ab7572a6ce6e129, type: 3}
+--- !u!4 &7851669020603172020 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7745067807597062703, guid: 141d6ca307e994bf7ab7572a6ce6e129, type: 3}
+  m_PrefabInstance: {fileID: 7851669020603172019}
+  m_PrefabAsset: {fileID: 0}

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87f1c9cee4bae4a249ab2fbea8caa606, type: 3}
-  m_Name: Pistol
+  m_Name: Salt
   m_EditorClassIdentifier: 
-  gunName: Pistol
-  animator: {fileID: 22100000, guid: bda09fc1e0750460eb94c6f28add6bec, type: 2}
-  idle: {fileID: -623603649343465320, guid: 38f9fff0057ab49bfbc41710423dd063, type: 3}
-  fire: {fileID: -623603649343465320, guid: bd77761ec3fdb4449898e69d2866e2fe, type: 3}
-  reload: {fileID: -623603649343465320, guid: 17981f02d2d8c4744ab5a03a7c9365b6, type: 3}
+  gunName: Salt
+  animator: {fileID: 22100000, guid: e31426ef9f1ea42f6a783f3b0cb30c95, type: 2}
+  idle: {fileID: -623603649343465320, guid: d1038a7dd2b994caeaca6059c9997798, type: 3}
+  fire: {fileID: 0}
+  reload: {fileID: 0}

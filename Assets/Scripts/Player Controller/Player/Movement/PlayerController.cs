@@ -37,24 +37,13 @@ public class PlayerController : MonoBehaviour {
     public float maxWallDistance = 1f;
     public float maxSpeed = 140f;
 
-    [System.NonSerialized] public Vector3 moveDirection;
-    [System.NonSerialized] public Rigidbody playerBody;
+    [NonSerialized]3 moveDirection;
+    [NonSer[NonSer[NonSerialized];
 
-    [System.NonSerialized] public float movementMultiplier = 10f;
+    [NonSerialized[NonSerialized[NonSerialized]   [NonSerialized] publi[NonSerialized]ment;
+[NonSerialized]blic float[NonSerialized]  [NonSeriali[NonSerialized]un[NonSerialized]nSerialized] public [NonSerialized]nSerialized]c float rawMaxRecordedSpeed[NonSerialized]blic float maxRecordedSpeed [NonSerialized]ed]a => IsGrounded();
 
-    [System.NonSerialized] public float horizontalMovement;
-    [System.NonSerialized] public float verticalMovement;
-
-    [System.NonSerialized] public bool wallRunning = false;
-
-    [System.NonSerialized] public Wall wallData;
-
-    [System.NonSerialized] public float rawMaxRecordedSpeed = 0f;
-    [System.NonSerialized] public float maxRecordedSpeed = 0f;
-
-    public Slope slopeData => IsGrounded();
-
-    public float forwardsSpeed => Mathf.Abs((playerBody.velocity.z / 1000) * 3600);
+    public float forw[NonSerialized]((playerBody.velocity.z / 1000) * 3600);
     public float rawforwardsSpeed => (playerBody.velocity.z / 1000) * 3600;
 
     private float _currentDrag;

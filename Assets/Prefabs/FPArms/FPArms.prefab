@@ -1414,6 +1414,7 @@ GameObject:
   - component: {fileID: 7745067807597062703}
   - component: {fileID: 7851669019982257253}
   - component: {fileID: 7851669019982257252}
+  - component: {fileID: 919132147500938279}
   m_Layer: 7
   m_Name: FPArms
   m_TagString: Untagged
@@ -1473,6 +1474,25 @@ MonoBehaviour:
   player: {fileID: 0}
   smoothing: 2
   swayMultiplier: 0.1
+--- !u!114 &919132147500938279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6933241660089479317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3cc7704f5b5447e7ac50f18f06f6e36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+    Melee: {fileID: 0}
+    Pistol: {fileID: 11400000, guid: ac26eef1000054937ad2effe81defaff, type: 2}
+    Shotgun: {fileID: 0}
+    Automatic: {fileID: 0}
+    Sniper: {fileID: 0}
+  activeWeapon: {fileID: 0}
 --- !u!1 &7002597729800972724
 GameObject:
   m_ObjectHideFlags: 0

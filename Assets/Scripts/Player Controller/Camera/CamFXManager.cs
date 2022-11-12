@@ -14,7 +14,7 @@ public class CamFXManager : MonoBehaviour {
     public float timeToWallRunFX = 5f;
     public AnimationCurve wallRunEasingCurve;
 
-    [System.NonSerialized] public Camera cam;
+    [NonSerialized] public Camera cam;
 
     private float _currentFov;
     public float currentFov {
