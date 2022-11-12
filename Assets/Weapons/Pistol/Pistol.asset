@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   gunName: Pistol
-  idle: {fileID: 0}
-  walk: {fileID: 0}
-  sprint: {fileID: 0}
-  fire: {fileID: 0}
-  reload: {fileID: 0}
+  animator: {fileID: 22100000, guid: bda09fc1e0750460eb94c6f28add6bec, type: 2}
+  idle: {fileID: -623603649343465320, guid: 38f9fff0057ab49bfbc41710423dd063, type: 3}
+  fire: {fileID: -623603649343465320, guid: bd77761ec3fdb4449898e69d2866e2fe, type: 3}
+  reload: {fileID: -623603649343465320, guid: 17981f02d2d8c4744ab5a03a7c9365b6, type: 3}
