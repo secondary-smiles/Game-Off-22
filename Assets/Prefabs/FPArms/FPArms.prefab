@@ -1487,12 +1487,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons:
-    Melee: {fileID: 0}
-    Pistol: {fileID: 11400000, guid: ac26eef1000054937ad2effe81defaff, type: 2}
-    Shotgun: {fileID: 0}
-    Automatic: {fileID: 0}
-    Sniper: {fileID: 0}
-  activeWeapon: {fileID: 0}
+  - {fileID: 11400000, guid: 556ea0b49190b46af88ae802c5204446, type: 2}
+  - {fileID: 11400000, guid: ac26eef1000054937ad2effe81defaff, type: 2}
 --- !u!1 &7002597729800972724
 GameObject:
   m_ObjectHideFlags: 0

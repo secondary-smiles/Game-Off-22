@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,13 +36,24 @@ public class PlayerController : MonoBehaviour {
     public float maxWallDistance = 1f;
     public float maxSpeed = 140f;
 
-    [NonSerialized]3 moveDirection;
-    [NonSer[NonSer[NonSerialized];
+    [System.NonSerialized] public Vector3 moveDirection;
+    [System.NonSerialized] public Rigidbody playerBody;
 
-    [NonSerialized[NonSerialized[NonSerialized]   [NonSerialized] publi[NonSerialized]ment;
-[NonSerialized]blic float[NonSerialized]  [NonSeriali[NonSerialized]un[NonSerialized]nSerialized] public [NonSerialized]nSerialized]c float rawMaxRecordedSpeed[NonSerialized]blic float maxRecordedSpeed [NonSerialized]ed]a => IsGrounded();
+    [System.NonSerialized] public float movementMultiplier = 10f;
 
-    public float forw[NonSerialized]((playerBody.velocity.z / 1000) * 3600);
+    [System.NonSerialized] public float horizontalMovement;
+    [System.NonSerialized] public float verticalMovement;
+
+    [System.NonSerialized] public bool wallRunning = false;
+
+    [System.NonSerialized] public Wall wallData;
+
+    [System.NonSerialized] public float rawMaxRecordedSpeed = 0f;
+    [System.NonSerialized] public float maxRecordedSpeed = 0f;
+
+    public Slope slopeData => IsGrounded();
+
+    public float forwardsSpeed => Mathf.Abs((playerBody.velocity.z / 1000) * 3600);
     public float rawforwardsSpeed => (playerBody.velocity.z / 1000) * 3600;
 
     private float _currentDrag;
@@ -87,17 +97,6 @@ public class PlayerController : MonoBehaviour {
 
         playerAnimator.SetBool("OnWall", wallRunning);
         playerAnimator.SetFloat("Speed", forwardsSpeed);
-        if (Input.GetKeyDown(KeyCode.F)) {
-            weaponOut = !weaponOut;
-            playerAnimator.SetBool("WeaponEquipped", weaponOut);
-        }
-        if (weaponOut && Input.GetButtonDown("Fire1") && ammo > 0) {
-            playerAnimator.SetTrigger("Fire");
-            ammo--;
-        } else if (weaponOut && Input.GetKeyDown(KeyCode.R) && ammo == 0) {
-            playerAnimator.SetTrigger("Reload");
-            ammo = 5;
-        }
     }
 
     private void LateUpdate() {

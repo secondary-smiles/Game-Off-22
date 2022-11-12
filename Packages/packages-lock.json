@@ -29,8 +29,8 @@
       }
     },
     "com.unity.ide.rider": {
-      "version": "3.0.15",
-      "depth": 1,
+      "version": "3.0.16",
+      "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.ext.nunit": "1.0.6"
@@ -69,7 +69,7 @@
     },
     "com.unity.test-framework": {
       "version": "1.1.31",
-      "depth": 0,
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.ext.nunit": "1.0.6",

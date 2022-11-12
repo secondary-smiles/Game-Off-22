@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Salt
   m_EditorClassIdentifier: 
   gunName: Salt
+  index: 1
   animator: {fileID: 22100000, guid: e31426ef9f1ea42f6a783f3b0cb30c95, type: 2}
-  idle: {fileID: -623603649343465320, guid: d1038a7dd2b994caeaca6059c9997798, type: 3}
-  fire: {fileID: 0}
-  reload: {fileID: 0}
+  autoReload: 1
