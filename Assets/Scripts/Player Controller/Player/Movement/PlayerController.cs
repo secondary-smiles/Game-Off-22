@@ -82,6 +82,7 @@ public class PlayerController : MonoBehaviour {
         playerBody.velocity = Vector3.zero;
     }
     bool weaponOut = false;
+    int ammo = 5;
     private void Update() {
         CaptureInput();
         if (slopeData.grounded) {
@@ -101,12 +102,13 @@ public class PlayerController : MonoBehaviour {
             weaponOut = !weaponOut;
             playerAnimator.SetBool("WeaponEquipped", weaponOut);
         }
-        if (weaponOut && Input.GetButtonDown("Fire1")) {
+        if (weaponOut && Input.GetButtonDown("Fire1") && ammo > 0) {
             playerAnimator.SetTrigger("Fire");
-        } else if (weaponOut && Input.GetKeyDown(KeyCode.R)) {
+            ammo--;
+        } else if (weaponOut && Input.GetKeyDown(KeyCode.R) && ammo == 0) {
             playerAnimator.SetTrigger("Reload");
+            ammo = 5;
         }
-        playerAnimator.ResetTrigger("Reload");
     }
 
     private void LateUpdate() {
