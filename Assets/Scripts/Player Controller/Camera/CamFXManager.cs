@@ -10,7 +10,7 @@ public class CamFXManager : MonoBehaviour {
 
     [Header("Wall Run FX")]
     public float wallRunFov = 90f;
-    public float wallRunTilt = 15f;
+    public float wallRunTilt = 5f;
     public float timeToWallRunFX = 5f;
     public AnimationCurve wallRunEasingCurve;
 

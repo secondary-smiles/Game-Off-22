@@ -1839,7 +1839,7 @@ MonoBehaviour:
   player: {fileID: 1265419476}
   defaultFov: 80
   wallRunFov: 90
-  wallRunTilt: 15
+  wallRunTilt: 5
   timeToWallRunFX: 5
   wallRunEasingCurve:
     serializedVersion: 2
@@ -1984,3 +1984,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2131138775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131138773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0858543b4d300459f95181d01c99c76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothing: 8
+  swayMultiplier: 2
