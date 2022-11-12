@@ -23,7 +23,6 @@ public class WallRun : MonoBehaviour {
             player.wallRunning = false;
         }
 
-        player.playerAnimator.SetBool("OnWall", player.wallData.onWall);
     }
 
     private void HandleWallrunOn() {

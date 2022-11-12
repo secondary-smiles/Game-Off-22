@@ -95,6 +95,7 @@ public class PlayerController : MonoBehaviour {
         transform.rotation = orientation.rotation;
         wallData = new Wall(orientation, maxWallDistance);
 
+        playerAnimator.SetBool("OnWall", wallRunning);
         playerAnimator.SetFloat("Speed", forwardsSpeed);
     }
 
