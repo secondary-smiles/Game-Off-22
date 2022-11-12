@@ -7,6 +7,7 @@ public class WallRun : MonoBehaviour {
     PlayerController player;
 
     bool canCallTrigger = true;
+    float prevSide = 0;
     // Start is called before the first frame update
     void Start() {
         player = GetComponent<PlayerController>();
@@ -26,13 +27,14 @@ public class WallRun : MonoBehaviour {
     }
 
     private void HandleWallrunOn() {
-        if (canCallTrigger) {
+        if (canCallTrigger || player.wallData.side != prevSide) {
             if (player.wallData.side == -1) {
                 player.playerAnimator.SetTrigger("Wallrun_L");
             } else {
                 player.playerAnimator.SetTrigger("Wallrun_R");
             }
             canCallTrigger = false;
+            prevSide = player.wallData.side;
         }
         player.useGravity = false;
 
