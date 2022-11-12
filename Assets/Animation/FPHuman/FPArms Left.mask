@@ -1,0 +1,157 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FPArms Left
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: FPArms Human Armature
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root
+    m_Weight: 0
+  - m_Path: FPArms Human Armature/Root/IK Arm Pole.L
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/IK Arm Pole.L/IK Arm Pole.L_end
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/IK Arm Pole.R
+    m_Weight: 0
+  - m_Path: FPArms Human Armature/Root/IK Arm Pole.R/IK Arm Pole.R_end
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/IK Arm Target.L
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/IK Arm Target.L/IK Arm Target.L_end
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/IK Arm Target.R
+    m_Weight: 0
+  - m_Path: FPArms Human Armature/Root/IK Arm Target.R/IK Arm Target.R_end
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.L
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Middle Finger.000.L
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Middle Finger.000.L/Middle
+      Finger.001.L
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Middle Finger.000.L/Middle
+      Finger.001.L/Middle Finger.002.L
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Middle Finger.000.L/Middle
+      Finger.001.L/Middle Finger.002.L/Middle Finger.002.L_end
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Pinky Finger.000.L
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Pinky Finger.000.L/Pinky
+      Finger.001.L
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Pinky Finger.000.L/Pinky
+      Finger.001.L/Pinky Finger.002.L
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Pinky Finger.000.L/Pinky
+      Finger.001.L/Pinky Finger.002.L/Pinky Finger.002.L_end
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Pointer Finger.000.L
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Pointer Finger.000.L/Pointer
+      Finger.001.L
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Pointer Finger.000.L/Pointer
+      Finger.001.L/Pointer Finger.002.L
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Pointer Finger.000.L/Pointer
+      Finger.001.L/Pointer Finger.002.L/Pointer Finger.002.L_end
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Ring Finger.000.L
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Ring Finger.000.L/Ring
+      Finger.001.L
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Ring Finger.000.L/Ring
+      Finger.001.L/Ring Finger.002.L
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Ring Finger.000.L/Ring
+      Finger.001.L/Ring Finger.002.L/Ring Finger.002.L_end
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Thumb Finger.000.L
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Thumb Finger.000.L/Thumb
+      Finger.001.L
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Thumb Finger.000.L/Thumb
+      Finger.001.L/Thumb Finger.002.L
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Thumb Finger.000.L/Thumb
+      Finger.001.L/Thumb Finger.002.L/Thumb Finger.002.L_end
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.R
+    m_Weight: 0
+  - m_Path: FPArms Human Armature/Root/Upper Arm.R/Lower Arm.R
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.R/Lower Arm.R/Palm.R
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.R/Lower Arm.R/Palm.R/Middle Finger.000.R
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.R/Lower Arm.R/Palm.R/Middle Finger.000.R/Middle
+      Finger.001.R
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.R/Lower Arm.R/Palm.R/Middle Finger.000.R/Middle
+      Finger.001.R/Middle Finger.002.R
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.R/Lower Arm.R/Palm.R/Middle Finger.000.R/Middle
+      Finger.001.R/Middle Finger.002.R/Middle Finger.002.R_end
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.R/Lower Arm.R/Palm.R/Pinky Finger.000.R
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.R/Lower Arm.R/Palm.R/Pinky Finger.000.R/Pinky
+      Finger.001.R
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.R/Lower Arm.R/Palm.R/Pinky Finger.000.R/Pinky
+      Finger.001.R/Pinky Finger.002.R
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.R/Lower Arm.R/Palm.R/Pinky Finger.000.R/Pinky
+      Finger.001.R/Pinky Finger.002.R/Pinky Finger.002.R_end
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.R/Lower Arm.R/Palm.R/Pointer Finger.000.R
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.R/Lower Arm.R/Palm.R/Pointer Finger.000.R/Pointer
+      Finger.001.R
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.R/Lower Arm.R/Palm.R/Pointer Finger.000.R/Pointer
+      Finger.001.R/Pointer Finger.002.R
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.R/Lower Arm.R/Palm.R/Pointer Finger.000.R/Pointer
+      Finger.001.R/Pointer Finger.002.R/Pointer Finger.002.R_end
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.R/Lower Arm.R/Palm.R/Ring Finger.000.R
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.R/Lower Arm.R/Palm.R/Ring Finger.000.R/Ring
+      Finger.001.R
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.R/Lower Arm.R/Palm.R/Ring Finger.000.R/Ring
+      Finger.001.R/Ring Finger.002.R
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.R/Lower Arm.R/Palm.R/Ring Finger.000.R/Ring
+      Finger.001.R/Ring Finger.002.R/Ring Finger.002.R_end
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.R/Lower Arm.R/Palm.R/Thumb Finger.000.R
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.R/Lower Arm.R/Palm.R/Thumb Finger.000.R/Thumb
+      Finger.001.R
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.R/Lower Arm.R/Palm.R/Thumb Finger.000.R/Thumb
+      Finger.001.R/Thumb Finger.002.R
+    m_Weight: 1
+  - m_Path: FPArms Human Armature/Root/Upper Arm.R/Lower Arm.R/Palm.R/Thumb Finger.000.R/Thumb
+      Finger.001.R/Thumb Finger.002.R/Thumb Finger.002.R_end
+    m_Weight: 1
+  - m_Path: FPArms Human Mesh
+    m_Weight: 0
