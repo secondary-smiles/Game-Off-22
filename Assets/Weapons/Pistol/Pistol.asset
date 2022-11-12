@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e557d4357444ba0a105c38f9db6102, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: 
-  gunName: 
+  gunName: Pistol
   idle: {fileID: 0}
   walk: {fileID: 0}
   sprint: {fileID: 0}

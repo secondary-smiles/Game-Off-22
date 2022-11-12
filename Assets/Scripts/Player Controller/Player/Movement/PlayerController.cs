@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour {
         playerBody.freezeRotation = true;
         playerBody.velocity = Vector3.zero;
     }
-
+    bool weaponOut = false;
     private void Update() {
         CaptureInput();
         if (slopeData.grounded) {
@@ -97,6 +97,16 @@ public class PlayerController : MonoBehaviour {
 
         playerAnimator.SetBool("OnWall", wallRunning);
         playerAnimator.SetFloat("Speed", forwardsSpeed);
+        if (Input.GetKeyDown(KeyCode.F)) {
+            weaponOut = !weaponOut;
+            playerAnimator.SetBool("WeaponEquipped", weaponOut);
+        }
+        if (weaponOut && Input.GetButtonDown("Fire1")) {
+            playerAnimator.SetTrigger("Fire");
+        } else if (weaponOut && Input.GetKeyDown(KeyCode.R)) {
+            playerAnimator.SetTrigger("Reload");
+        }
+        playerAnimator.ResetTrigger("Reload");
     }
 
     private void LateUpdate() {
