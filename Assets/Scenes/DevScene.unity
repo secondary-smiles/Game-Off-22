@@ -1728,7 +1728,7 @@ PrefabInstance:
     - target: {fileID: 7851669019982257253, guid: 141d6ca307e994bf7ab7572a6ce6e129, type: 3}
       propertyPath: m_Avatar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9000000, guid: af20645d617944c63ac295f868db4668, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 141d6ca307e994bf7ab7572a6ce6e129, type: 3}
 --- !u!4 &7851669020603172020 stripped

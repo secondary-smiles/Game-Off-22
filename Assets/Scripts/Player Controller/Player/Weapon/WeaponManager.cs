@@ -35,7 +35,6 @@ public class WeaponManager : MonoBehaviour {
 
     public void SwitchTo(Gun gun) {
         if (gun == activeWeapon) return;
-        
         activeWeapon = gun;
         if (activeWeapon.ammoInMag == 0 && activeWeapon.firstEquip == false) {
             activeWeapon.ammoInMag = activeWeapon.ammoPerMag;
@@ -69,13 +68,16 @@ public class WeaponManager : MonoBehaviour {
     }
 
     private void CaptureScrollWheel() {
-        float scroll = Input.GetAxisRaw("Mouse ScrollWheel");
-
-        if (scroll > 0f) {
+        Vector2 scroll = Vector2.right * Input.GetAxis("Mouse ScrollWheel");
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) {
+            scroll = Input.mouseScrollDelta;
+        }
+        
+        if (scroll.x > 0f || scroll.y > 0f) {
             selectedWeaponIndex++;
             if (selectedWeaponIndex > weapons.Length-1) { selectedWeaponIndex = 0; }
         }
-        if (scroll < 0f) {
+        if (scroll.x < 0f || scroll.y > 0f) {
             selectedWeaponIndex--;
             if (selectedWeaponIndex < 0) { selectedWeaponIndex = weapons.Length-1; }
         }
