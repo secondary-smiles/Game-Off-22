@@ -25,6 +25,8 @@ public class WeaponManager : MonoBehaviour {
 
     private void Update() {
         CaptureInput();
+
+        selectedWeaponIndex = Mathf.Clamp(selectedWeaponIndex, 0, weapons.Length - 1);
         SwitchTo(weapons[selectedWeaponIndex]);
     }
 
@@ -50,8 +52,9 @@ public class WeaponManager : MonoBehaviour {
         // However unlikely, number row has priority over scroll wheel
         CaptureNumberRow();
 
-        if (Input.GetButtonDown("Fire1")) { isFiring = true; }
-        if (Input.GetKeyDown(KeyCode.R)) { isReloading = true; }
+        if (activeWeapon == null) return;
+        isFiring = activeWeapon.autoFire ? Input.GetButton("Fire1") : Input.GetButtonDown("Fire1");
+        isReloading = Input.GetKeyDown(KeyCode.R);
     }
 
     private void CaptureNumberRow() {
@@ -72,18 +75,19 @@ public class WeaponManager : MonoBehaviour {
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) {
             scroll = Input.mouseScrollDelta;
         }
-        
+
         if (scroll.x > 0f || scroll.y > 0f) {
             selectedWeaponIndex++;
-            if (selectedWeaponIndex > weapons.Length-1) { selectedWeaponIndex = 0; }
+            if (selectedWeaponIndex > weapons.Length - 1) { selectedWeaponIndex = 0; }
         }
         if (scroll.x < 0f || scroll.y > 0f) {
             selectedWeaponIndex--;
-            if (selectedWeaponIndex < 0) { selectedWeaponIndex = weapons.Length-1; }
+            if (selectedWeaponIndex < 0) { selectedWeaponIndex = weapons.Length - 1; }
         }
     }
 
     private void _StartupAddComponents() {
         gameObject.AddComponent<WeaponAnimationController>();
+        gameObject.AddComponent<AmmoManager>();
     }
 }

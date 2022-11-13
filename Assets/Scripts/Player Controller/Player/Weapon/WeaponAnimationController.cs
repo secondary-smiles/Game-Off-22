@@ -11,25 +11,15 @@ public class WeaponAnimationController : MonoBehaviour {
         manager = GetComponent<WeaponManager>();
     }
 
-    // Update is called once per frame
-    void Update() {
-        HandleInput();
+    public void AnimateWeaponFire() {
+        manager.playerAnimator.SetTrigger("Fire");
     }
 
-    private void HandleInput() {
-        manager.selectedWeaponIndex = Mathf.Clamp(manager.selectedWeaponIndex, 0, manager.weapons.Length - 1);
-        if (manager.activeWeapon != manager.weapons[manager.selectedWeaponIndex]) {
-            manager.SwitchTo(manager.weapons[manager.selectedWeaponIndex]);
-        }
+    public void resetFireAnimation() {
+        manager.playerAnimator.ResetTrigger("Fire");
+    }
 
-        if (manager.isFiring) {
-            if (manager.activeWeapon.ammoInMag != 0) {
-                manager.playerAnimator.SetTrigger("Fire");
-            }
-        } else if (manager.isReloading) {
-            if (manager.activeWeapon.ammoInMag < 1) {
-                manager.playerAnimator.SetTrigger("Reload");
-            }
-        }
+    public void AnimateWeaponReload() {
+        manager.playerAnimator.SetTrigger("Reload");
     }
 }

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   gunName: Pistol
-  index: 1
   animator: {fileID: 22100000, guid: bda09fc1e0750460eb94c6f28add6bec, type: 2}
   autoReload: 1
-  ammoPerMag: 3
-  startingTotalAmmo: -1
+  autoFire: 1
+  infAmmo: 1
+  ammoPerMag: 0
+  startingTotalAmmo: 0

@@ -6,14 +6,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Gun", menuName = "ScriptableObjects/Gun")]
 public class Gun : ScriptableObject {
     public string gunName;
-    public int index;
     public AnimatorOverrideController animator;
 
     public bool autoReload = true;
+    public bool autoFire = false;
+
+    public bool infAmmo = false;
 
     [Header("Gun Settings")]
-    public float ammoPerMag;
-    public float startingTotalAmmo;
+    public int ammoPerMag;
+    public int startingTotalAmmo;
 
     // Sys data
     [NonSerialized] public bool firstEquip;
