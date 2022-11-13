@@ -34,6 +34,8 @@ public class WeaponManager : MonoBehaviour {
     }
 
     public void SwitchTo(Gun gun) {
+        if (gun == activeWeapon) return;
+        
         activeWeapon = gun;
         if (activeWeapon.ammoInMag == 0 && activeWeapon.firstEquip == false) {
             activeWeapon.ammoInMag = activeWeapon.ammoPerMag;
