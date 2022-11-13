@@ -25,6 +25,7 @@ public class WeaponManager : MonoBehaviour {
 
     private void Update() {
         CaptureInput();
+        SwitchTo(weapons[selectedWeaponIndex]);
     }
 
     void LateUpdate() {
@@ -37,10 +38,15 @@ public class WeaponManager : MonoBehaviour {
         if (activeWeapon.ammoInMag == 0 && activeWeapon.firstEquip == false) {
             activeWeapon.ammoInMag = activeWeapon.ammoPerMag;
         }
+        playerAnimator.SetTrigger("WeaponSwitch");
         playerAnimator.runtimeAnimatorController = activeWeapon.animator;
+        playerAnimator.SetBool("WeaponEquipped", true);
     }
 
     private void CaptureInput() {
+        CaptureScrollWheel();
+
+        // However unlikely, number row has priority over scroll wheel
         CaptureNumberRow();
 
         if (Input.GetButtonDown("Fire1")) { isFiring = true; }
@@ -58,6 +64,19 @@ public class WeaponManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Alpha8)) { selectedWeaponIndex = 7; }
         if (Input.GetKeyDown(KeyCode.Alpha9)) { selectedWeaponIndex = 8; }
         if (Input.GetKeyDown(KeyCode.Alpha0)) { selectedWeaponIndex = 9; }
+    }
+
+    private void CaptureScrollWheel() {
+        float scroll = Input.GetAxisRaw("Mouse ScrollWheel");
+
+        if (scroll > 0f) {
+            selectedWeaponIndex++;
+            if (selectedWeaponIndex > weapons.Length-1) { selectedWeaponIndex = 0; }
+        }
+        if (scroll < 0f) {
+            selectedWeaponIndex--;
+            if (selectedWeaponIndex < 0) { selectedWeaponIndex = weapons.Length-1; }
+        }
     }
 
     private void _StartupAddComponents() {

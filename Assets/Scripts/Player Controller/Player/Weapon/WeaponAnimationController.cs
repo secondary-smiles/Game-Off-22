@@ -9,7 +9,6 @@ public class WeaponAnimationController : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         manager = GetComponent<WeaponManager>();
-        manager.playerAnimator.SetBool("WeaponEquipped", true);
     }
 
     // Update is called once per frame

@@ -18,7 +18,7 @@ AvatarMask:
   - m_Path: FPArms Human Armature/Root/IK Arm Pole.L
     m_Weight: 0
   - m_Path: FPArms Human Armature/Root/IK Arm Pole.L/IK Arm Pole.L_end
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: FPArms Human Armature/Root/IK Arm Pole.R
     m_Weight: 1
   - m_Path: FPArms Human Armature/Root/IK Arm Pole.R/IK Arm Pole.R_end
@@ -26,7 +26,7 @@ AvatarMask:
   - m_Path: FPArms Human Armature/Root/IK Arm Target.L
     m_Weight: 0
   - m_Path: FPArms Human Armature/Root/IK Arm Target.L/IK Arm Target.L_end
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: FPArms Human Armature/Root/IK Arm Target.R
     m_Weight: 1
   - m_Path: FPArms Human Armature/Root/IK Arm Target.R/IK Arm Target.R_end
@@ -34,64 +34,64 @@ AvatarMask:
   - m_Path: FPArms Human Armature/Root/Upper Arm.L
     m_Weight: 0
   - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Middle Finger.000.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Middle Finger.000.L/Middle
       Finger.001.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Middle Finger.000.L/Middle
       Finger.001.L/Middle Finger.002.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Middle Finger.000.L/Middle
       Finger.001.L/Middle Finger.002.L/Middle Finger.002.L_end
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Pinky Finger.000.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Pinky Finger.000.L/Pinky
       Finger.001.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Pinky Finger.000.L/Pinky
       Finger.001.L/Pinky Finger.002.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Pinky Finger.000.L/Pinky
       Finger.001.L/Pinky Finger.002.L/Pinky Finger.002.L_end
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Pointer Finger.000.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Pointer Finger.000.L/Pointer
       Finger.001.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Pointer Finger.000.L/Pointer
       Finger.001.L/Pointer Finger.002.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Pointer Finger.000.L/Pointer
       Finger.001.L/Pointer Finger.002.L/Pointer Finger.002.L_end
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Ring Finger.000.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Ring Finger.000.L/Ring
       Finger.001.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Ring Finger.000.L/Ring
       Finger.001.L/Ring Finger.002.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Ring Finger.000.L/Ring
       Finger.001.L/Ring Finger.002.L/Ring Finger.002.L_end
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Thumb Finger.000.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Thumb Finger.000.L/Thumb
       Finger.001.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Thumb Finger.000.L/Thumb
       Finger.001.L/Thumb Finger.002.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: FPArms Human Armature/Root/Upper Arm.L/Lower Arm.L/Palm.L/Thumb Finger.000.L/Thumb
       Finger.001.L/Thumb Finger.002.L/Thumb Finger.002.L_end
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: FPArms Human Armature/Root/Upper Arm.R
     m_Weight: 1
   - m_Path: FPArms Human Armature/Root/Upper Arm.R/Lower Arm.R
@@ -154,4 +154,4 @@ AvatarMask:
       Finger.001.R/Thumb Finger.002.R/Thumb Finger.002.R_end
     m_Weight: 1
   - m_Path: FPArms Human Mesh
-    m_Weight: 1
+    m_Weight: 0
