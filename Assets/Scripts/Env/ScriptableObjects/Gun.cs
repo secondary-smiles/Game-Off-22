@@ -17,7 +17,8 @@ public class Gun : ScriptableObject {
     public int ammoPerMag;
     public int startingTotalAmmo;
     public float timeBetweenShots;
-
+    public float timeToReload;
+    
     // Sys data
     [NonSerialized] public bool firstEquip;
     [NonSerialized] public int ammoInMag;

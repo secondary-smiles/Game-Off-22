@@ -9,6 +9,7 @@ public class WeaponManager : MonoBehaviour {
     [NonSerialized] public Gun activeWeapon;
 
     [NonSerialized] public int selectedWeaponIndex = 0;
+    [NonSerialized] public bool weaponEquipped = false;
     [NonSerialized] public bool isFiring = false;
     [NonSerialized] public bool isReloading = false;
 
@@ -45,6 +46,7 @@ public class WeaponManager : MonoBehaviour {
         playerAnimator.SetTrigger("WeaponSwitch");
         playerAnimator.runtimeAnimatorController = activeWeapon.animator;
         playerAnimator.SetBool("WeaponEquipped", true);
+        weaponEquipped = true;
     }
 
     private void CaptureInput() {

@@ -8,6 +8,7 @@ public class AmmoManager : MonoBehaviour {
     WeaponAnimationController animator;
 
     float shotTimer = 0f;
+    float reloadTimer = 0f;
 
     // Start is called before the first frame update
     void Start() {
@@ -17,6 +18,8 @@ public class AmmoManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (!manager.weaponEquipped) return;
+        
         if (manager.isFiring) {
             HandleWeaponFire();
         }
@@ -31,19 +34,24 @@ public class AmmoManager : MonoBehaviour {
 
         shotTimer -= Time.deltaTime;
         shotTimer = Mathf.Clamp(shotTimer, 0f, manager.activeWeapon.timeBetweenShots);
+        
+        reloadTimer -= Time.deltaTime;
+        reloadTimer = Mathf.Clamp(reloadTimer, 0f, manager.activeWeapon.timeToReload);
     }
 
     private bool CheckReloadConditions() {
         if (manager.activeWeapon.ammoInMag == 0 && manager.activeWeapon.autoReload) return true;
         if (manager.isReloading && manager.activeWeapon.ammoInMag < manager.activeWeapon.ammoPerMag) return true;
+        if (reloadTimer > 0f) return false;
 
         return false;
     }
 
     private void HandleWeaponFire() {
         if (manager.activeWeapon.ammoInMag < 1) return;
-        if (shotTimer > 0) return;
+        if (shotTimer > 0 || reloadTimer > 0) return;
 
+        print("fire");
         shotTimer = manager.activeWeapon.timeBetweenShots;
 
         animator.AnimateWeaponFire();
@@ -52,6 +60,9 @@ public class AmmoManager : MonoBehaviour {
 
 
     private void HandleWeaponReload() {
+        reloadTimer = manager.activeWeapon.timeToReload;
+        
+        animator.resetFireAnimation();
         animator.AnimateWeaponReload();
 
         int newAmmo = manager.activeWeapon.ammoPerMag;

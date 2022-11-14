@@ -11,7 +11,7 @@ public class WeaponAnimationController : MonoBehaviour {
         manager = GetComponent<WeaponManager>();
     }
 
-    void LateUpdate() {
+    void Update() {
         manager.playerAnimator.SetBool("Reload", manager.playerAnimator.GetCurrentAnimatorStateInfo(3).IsName("FPWeapon Reload"));
     }
 
