@@ -16,9 +16,10 @@ public class Gun : ScriptableObject {
     [Header("Gun Settings")]
     public int ammoPerMag;
     public int startingTotalAmmo;
+    public float timeBetweenShots;
 
     // Sys data
     [NonSerialized] public bool firstEquip;
-    [NonSerialized] public float ammoInMag;
-    [NonSerialized] public float totalAmmo;
+    [NonSerialized] public int ammoInMag;
+    [NonSerialized] public int totalAmmo;
 }

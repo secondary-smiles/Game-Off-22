@@ -80,8 +80,6 @@ public class PlayerController : MonoBehaviour {
         playerBody.freezeRotation = true;
         playerBody.velocity = Vector3.zero;
     }
-    bool weaponOut = false;
-    int ammo = 5;
     private void Update() {
         CaptureInput();
         if (slopeData.grounded) {

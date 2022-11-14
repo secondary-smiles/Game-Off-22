@@ -38,8 +38,9 @@ public class WeaponManager : MonoBehaviour {
     public void SwitchTo(Gun gun) {
         if (gun == activeWeapon) return;
         activeWeapon = gun;
-        if (activeWeapon.ammoInMag == 0 && activeWeapon.firstEquip == false) {
+        if (activeWeapon.ammoInMag == 0 && !activeWeapon.firstEquip) {
             activeWeapon.ammoInMag = activeWeapon.ammoPerMag;
+            activeWeapon.totalAmmo = activeWeapon.startingTotalAmmo;
         }
         playerAnimator.SetTrigger("WeaponSwitch");
         playerAnimator.runtimeAnimatorController = activeWeapon.animator;
