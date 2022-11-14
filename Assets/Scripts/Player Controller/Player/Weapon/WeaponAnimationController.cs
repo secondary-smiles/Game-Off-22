@@ -11,6 +11,10 @@ public class WeaponAnimationController : MonoBehaviour {
         manager = GetComponent<WeaponManager>();
     }
 
+    void LateUpdate() {
+        manager.playerAnimator.SetBool("Reload", manager.playerAnimator.GetCurrentAnimatorStateInfo(3).IsName("FPWeapon Reload"));
+    }
+
     public void AnimateWeaponFire() {
         manager.playerAnimator.SetTrigger("Fire");
     }
@@ -20,6 +24,6 @@ public class WeaponAnimationController : MonoBehaviour {
     }
 
     public void AnimateWeaponReload() {
-        manager.playerAnimator.SetTrigger("Reload");
+        manager.playerAnimator.SetBool("Reload", true);
     }
 }

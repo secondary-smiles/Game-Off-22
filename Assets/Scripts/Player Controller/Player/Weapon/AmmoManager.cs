@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,17 +28,14 @@ public class AmmoManager : MonoBehaviour {
         if (CheckReloadConditions()) {
             HandleWeaponReload();
         }
-        
+
         shotTimer -= Time.deltaTime;
         shotTimer = Mathf.Clamp(shotTimer, 0f, manager.activeWeapon.timeBetweenShots);
-        
-        // print(manager.activeWeapon.ammoInMag);
     }
 
     private bool CheckReloadConditions() {
-        // if (manager.activeWeapon.ammoInMag == 0 && manager.activeWeapon.autoReload) return true;
-        // if (manager.isReloading && manager.activeWeapon.ammoInMag < manager.activeWeapon.ammoPerMag) return true;
-        if (manager.isReloading) return true;
+        if (manager.activeWeapon.ammoInMag == 0 && manager.activeWeapon.autoReload) return true;
+        if (manager.isReloading && manager.activeWeapon.ammoInMag < manager.activeWeapon.ammoPerMag) return true;
 
         return false;
     }
@@ -45,11 +43,11 @@ public class AmmoManager : MonoBehaviour {
     private void HandleWeaponFire() {
         if (manager.activeWeapon.ammoInMag < 1) return;
         if (shotTimer > 0) return;
-        print("fire");
+
         shotTimer = manager.activeWeapon.timeBetweenShots;
 
         animator.AnimateWeaponFire();
-        manager.activeWeapon.ammoInMag-= 1;
+        manager.activeWeapon.ammoInMag -= 1;
     }
 
 
