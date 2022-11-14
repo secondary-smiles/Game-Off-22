@@ -17,5 +17,7 @@ MonoBehaviour:
   autoReload: 1
   autoFire: 0
   infAmmo: 1
-  ammoPerMag: 0
-  startingTotalAmmo: 0
+  ammoPerMag: 1
+  startingTotalAmmo: 1
+  timeBetweenShots: 0.7
+  timeToReload: 0

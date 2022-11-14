@@ -1414,7 +1414,7 @@ GameObject:
   - component: {fileID: 7745067807597062703}
   - component: {fileID: 7851669019982257253}
   - component: {fileID: 7851669019982257252}
-  - component: {fileID: 919132147500938279}
+  - component: {fileID: 2112028571987555790}
   m_Layer: 7
   m_Name: FPArms
   m_TagString: Untagged
@@ -1474,7 +1474,7 @@ MonoBehaviour:
   player: {fileID: 0}
   smoothing: 2
   swayMultiplier: 0.1
---- !u!114 &919132147500938279
+--- !u!114 &2112028571987555790
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1486,9 +1486,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3cc7704f5b5447e7ac50f18f06f6e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons:
-  - {fileID: 11400000, guid: 556ea0b49190b46af88ae802c5204446, type: 2}
-  - {fileID: 11400000, guid: ac26eef1000054937ad2effe81defaff, type: 2}
 --- !u!1 &7002597729800972724
 GameObject:
   m_ObjectHideFlags: 0
