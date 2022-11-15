@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour {
@@ -59,6 +58,7 @@ public class WeaponManager : MonoBehaviour {
 
     private IEnumerator _SwitchToAnimationHelper(Gun weapon, bool animate) {
         if (animate) {
+            animator.ResetTrigger("WeaponSwitch");
             animator.SetTrigger("WeaponSwitch");
             
             yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(3).IsName("FPWeapon Switch"));
