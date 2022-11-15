@@ -21,6 +21,7 @@ public class WeaponManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        CaptureScrollWheel();
         CaptureNumberRow();
         ClampSelectedWeaponIndex();
         
@@ -55,6 +56,22 @@ public class WeaponManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Alpha8)) { activeGunIndex = 7; }
         if (Input.GetKeyDown(KeyCode.Alpha9)) { activeGunIndex = 8; }
         if (Input.GetKeyDown(KeyCode.Alpha0)) { activeGunIndex = 9; }
+    }
+    
+    private void CaptureScrollWheel() {
+        Vector2 scroll = Vector2.right * Input.GetAxis("Mouse ScrollWheel");
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) {
+            scroll = Input.mouseScrollDelta;
+        }
+
+        if (scroll.x > 0f || scroll.y > 0f) {
+            activeGunIndex++;
+            if (activeGunIndex > weapons.Length - 1) { activeGunIndex = 0; }
+        }
+        if (scroll.x < 0f || scroll.y > 0f) {
+            activeGunIndex--;
+            if (activeGunIndex < 0) { activeGunIndex = weapons.Length - 1; }
+        }
     }
 
     private void ClampSelectedWeaponIndex() {
