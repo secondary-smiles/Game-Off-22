@@ -7,18 +7,22 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour {
     public Gun[] weapons;
 
+    public int startingWeaponIndex = 0;
+
     [NonSerialized] public Animator animator;
-    
+
     [NonSerialized] public Gun activeGun;
     [NonSerialized] public int activeGunIndex;
 
+    [NonSerialized] public bool isReloading;
 
     // Start is called before the first frame update
     void Start() {
         _StartupAddComponents();
-        
+
         animator = GetComponent<Animator>();
-        SwitchTo(weapons[1]);
+        
+        SwitchTo(weapons[startingWeaponIndex], animate: false);
     }
 
     // Update is called once per frame
@@ -26,32 +30,36 @@ public class WeaponManager : MonoBehaviour {
         CaptureScrollWheel();
         CaptureNumberRow();
         ClampSelectedWeaponIndex();
-        
+
         SwitchTo(weapons[activeGunIndex]);
     }
 
 
-    private void SwitchTo(Gun weapon) {
+    private void SwitchTo(Gun weapon, bool animate = true) {
         if (activeGun == weapon) return;
-        
+
         activeGun = weapon;
         activeGunIndex = System.Array.IndexOf(weapons, weapon);
 
-        StartCoroutine(_SwitchToAnimationHelper(weapon));
+        StartCoroutine(_SwitchToAnimationHelper(weapon, animate));
         _SwitchToWeaponSetupHelper(weapon);
     }
 
     private void _SwitchToWeaponSetupHelper(Gun weapon) {
-        if (activeGun.firstEquip) {
-            activeGun.ammoInMag = activeGun.ammoPerMag;
-            activeGun.firstEquip = false;
-        }
-    }
-    
-    private IEnumerator _SwitchToAnimationHelper(Gun weapon) {
-        animator.SetTrigger("WeaponSwitch");
+        if (!activeGun.firstEquip) return;
 
-        yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(3).IsName("FPWeapon Switch"));
+        activeGun.ammoInMag = activeGun.ammoPerMag;
+        activeGun.totalAmmo = activeGun.startingTotalAmmo;
+
+        activeGun.firstEquip = false;
+    }
+
+    private IEnumerator _SwitchToAnimationHelper(Gun weapon, bool animate) {
+        if (animate) {
+            animator.SetTrigger("WeaponSwitch");
+            
+            yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(3).IsName("FPWeapon Switch"));
+        }
         animator.runtimeAnimatorController = weapon.animatorController;
     }
 
@@ -67,7 +75,7 @@ public class WeaponManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Alpha9)) { activeGunIndex = 8; }
         if (Input.GetKeyDown(KeyCode.Alpha0)) { activeGunIndex = 9; }
     }
-    
+
     private void CaptureScrollWheel() {
         Vector2 scroll = Vector2.right * Input.GetAxis("Mouse ScrollWheel");
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) {

@@ -21,7 +21,7 @@ public class WeaponShoot : MonoBehaviour {
     private void HandleShoot() {
         // Check ammo first
         if (manager.activeGun.ammoInMag <= 0) return;
-        if (isFiring) return;
+        if (isFiring || manager.isReloading) return;
         
         // Shoot
         manager.animator.ResetTrigger("Fire");
