@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   gunName: Pistol
-  animator: {fileID: 22100000, guid: bda09fc1e0750460eb94c6f28add6bec, type: 2}
+  animatorController: {fileID: 22100000, guid: bda09fc1e0750460eb94c6f28add6bec, type: 2}
   autoReload: 1
   autoFire: 1
   infAmmo: 1
   ammoPerMag: 6
   startingTotalAmmo: 6
   timeBetweenShots: 0.4
-  timeToReload: 0
+  reloadTime: 0.6

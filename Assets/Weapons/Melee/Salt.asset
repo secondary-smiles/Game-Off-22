@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Salt
   m_EditorClassIdentifier: 
   gunName: Salt
-  animator: {fileID: 22100000, guid: e31426ef9f1ea42f6a783f3b0cb30c95, type: 2}
+  animatorController: {fileID: 22100000, guid: e31426ef9f1ea42f6a783f3b0cb30c95, type: 2}
   autoReload: 1
   autoFire: 0
   infAmmo: 1
   ammoPerMag: 1
   startingTotalAmmo: 1
   timeBetweenShots: 0.7
-  timeToReload: 1
+  reloadTime: 1.2
