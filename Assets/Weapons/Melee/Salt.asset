@@ -20,4 +20,4 @@ MonoBehaviour:
   ammoPerMag: 1
   startingTotalAmmo: 1
   timeBetweenShots: 0.7
-  timeToReload: 0
+  timeToReload: 1

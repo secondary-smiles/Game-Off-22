@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Gun", menuName = "ScriptableObjects/Gun")]
 public class Gun : ScriptableObject {
     public string gunName;
-    public AnimatorOverrideController animator;
+    public AnimatorOverrideController animatorController;
 
     public bool autoReload = true;
     public bool autoFire = false;
