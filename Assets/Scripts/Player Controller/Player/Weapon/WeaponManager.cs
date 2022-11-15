@@ -90,5 +90,6 @@ public class WeaponManager : MonoBehaviour {
 
     private void _StartupAddComponents() {
         gameObject.AddComponent<WeaponShoot>().manager = this;
+        gameObject.AddComponent<WeaponReload>().manager = this;
     }
 }
