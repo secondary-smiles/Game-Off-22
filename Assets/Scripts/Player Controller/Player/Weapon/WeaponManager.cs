@@ -26,6 +26,7 @@ public class WeaponManager : MonoBehaviour {
         ClampSelectedWeaponIndex();
         
         SwitchTo(weapons[activeGunIndex]);
+        print(activeGun.ammoInMag);
     }
 
 
@@ -36,12 +37,20 @@ public class WeaponManager : MonoBehaviour {
         activeGunIndex = System.Array.IndexOf(weapons, weapon);
 
         StartCoroutine(_SwitchToAnimationHelper(weapon));
-    }    
+        _SwitchToWeaponSetupHelper(weapon);
+    }
+
+    private void _SwitchToWeaponSetupHelper(Gun weapon) {
+        if (activeGun.firstEquip) {
+            activeGun.ammoInMag = activeGun.ammoPerMag;
+            activeGun.firstEquip = false;
+        }
+    }
     
-    IEnumerator _SwitchToAnimationHelper(Gun weapon) {
+    private IEnumerator _SwitchToAnimationHelper(Gun weapon) {
         animator.SetTrigger("WeaponSwitch");
 
-        yield return new WaitUntil(() => !animator.GetCurrentAnimatorStateInfo(3).IsName("FPWeapon Reload"));
+        yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(3).IsName("FPWeapon Switch"));
         animator.runtimeAnimatorController = weapon.animatorController;
     }
 
