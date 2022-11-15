@@ -15,6 +15,8 @@ public class WeaponManager : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
+        _StartupAddComponents();
+        
         animator = GetComponent<Animator>();
         SwitchTo(weapons[1]);
     }
@@ -26,7 +28,6 @@ public class WeaponManager : MonoBehaviour {
         ClampSelectedWeaponIndex();
         
         SwitchTo(weapons[activeGunIndex]);
-        print(activeGun.ammoInMag);
     }
 
 
@@ -85,5 +86,9 @@ public class WeaponManager : MonoBehaviour {
 
     private void ClampSelectedWeaponIndex() {
         activeGunIndex = Mathf.Clamp(activeGunIndex, 0, weapons.Length - 1);
+    }
+
+    private void _StartupAddComponents() {
+        gameObject.AddComponent<WeaponShoot>().manager = this;
     }
 }
