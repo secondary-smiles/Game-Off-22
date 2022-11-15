@@ -16,11 +16,14 @@ public class WeaponManager : MonoBehaviour {
 
     [NonSerialized] public bool isReloading;
 
+    WeaponReload reloadModule;
+
     // Start is called before the first frame update
     void Start() {
         _StartupAddComponents();
 
         animator = GetComponent<Animator>();
+        reloadModule = GetComponent<WeaponReload>();
         
         SwitchTo(weapons[startingWeaponIndex], animate: false);
     }
@@ -34,15 +37,15 @@ public class WeaponManager : MonoBehaviour {
         SwitchTo(weapons[activeGunIndex]);
     }
 
-
     private void SwitchTo(Gun weapon, bool animate = true) {
         if (activeGun == weapon) return;
 
+        reloadModule.CancelReloadIfActive();
         activeGun = weapon;
-        activeGunIndex = System.Array.IndexOf(weapons, weapon);
+        activeGunIndex = Array.IndexOf(weapons, weapon);
 
-        StartCoroutine(_SwitchToAnimationHelper(weapon, animate));
         _SwitchToWeaponSetupHelper(weapon);
+        StartCoroutine(_SwitchToAnimationHelper(weapon, animate));
     }
 
     private void _SwitchToWeaponSetupHelper(Gun weapon) {
@@ -61,6 +64,8 @@ public class WeaponManager : MonoBehaviour {
             yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(3).IsName("FPWeapon Switch"));
         }
         animator.runtimeAnimatorController = weapon.animatorController;
+
+        yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(3).IsName("FPWeapon Switch"));
     }
 
     private void CaptureNumberRow() {

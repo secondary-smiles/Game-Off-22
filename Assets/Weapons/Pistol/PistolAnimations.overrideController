@@ -9,9 +9,9 @@ AnimatorOverrideController:
   m_Name: PistolAnimations
   m_Controller: {fileID: 9100000, guid: cfd3e9a3716d8437a8f5aa960bb94c12, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: -623603649343465320, guid: bd77761ec3fdb4449898e69d2866e2fe, type: 3}
-    m_OverrideClip: {fileID: -623603649343465320, guid: bd77761ec3fdb4449898e69d2866e2fe, type: 3}
   - m_OriginalClip: {fileID: -623603649343465320, guid: d1038a7dd2b994caeaca6059c9997798, type: 3}
     m_OverrideClip: {fileID: -623603649343465320, guid: 38f9fff0057ab49bfbc41710423dd063, type: 3}
   - m_OriginalClip: {fileID: -623603649343465320, guid: 17981f02d2d8c4744ab5a03a7c9365b6, type: 3}
     m_OverrideClip: {fileID: -623603649343465320, guid: 17981f02d2d8c4744ab5a03a7c9365b6, type: 3}
+  - m_OriginalClip: {fileID: -623603649343465320, guid: 0079d3780e8ff46308c997e04a5666c2, type: 3}
+    m_OverrideClip: {fileID: -623603649343465320, guid: bd77761ec3fdb4449898e69d2866e2fe, type: 3}
