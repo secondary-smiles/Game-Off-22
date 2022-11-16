@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,10 @@ public class PlayerController : MonoBehaviour {
 
     [Header("Wallrunning")]
     public float wallRunGravity;
+
+    [Header("Grapplegunning")]
+    public Transform grappleShootPoint;
+    public float maxGrappleRange;
 
     [Header("Jumping")]
     public float jumpStrength = 14f;
@@ -128,10 +133,10 @@ public class PlayerController : MonoBehaviour {
     private bool CheckTagSphere(string tag) {
         Collider[] hitColliders = Physics.OverlapSphere(groundCheckPoint.position, groundCheckRadius);
         foreach (var hitCollider in hitColliders) {
-            if (hitCollider.gameObject.GetComponent<Tags>()) {
-                if (hitCollider.gameObject.GetComponent<Tags>().hasTag(tag)) {
-                    return true;
-                }
+            try {
+                return hitCollider.gameObject.GetComponent<Tags>().hasTag(tag);
+            } catch {
+                return false;
             }
         }
         return false;
