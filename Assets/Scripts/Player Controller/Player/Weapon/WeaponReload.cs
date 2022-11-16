@@ -40,7 +40,6 @@ public class WeaponReload : MonoBehaviour {
         manager.isReloading = true;
         yield return new WaitForSeconds(manager.activeGun.reloadTime);
         yield return new WaitUntil(() => !manager.animator.GetCurrentAnimatorStateInfo(3).IsName("FPWeapon Reload"));
-        print("apply");
         ApplyAmmoCalc();
         manager.isReloading = false;
     }
