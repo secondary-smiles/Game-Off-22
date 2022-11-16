@@ -4,14 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WallRun : MonoBehaviour {
-    PlayerController player;
+    public PlayerController player;
 
     bool canCallTrigger = true;
     float prevSide = 0;
-    // Start is called before the first frame update
-    void Start() {
-        player = GetComponent<PlayerController>();
-    }
 
     // Update is called once per frame
     void Update() {

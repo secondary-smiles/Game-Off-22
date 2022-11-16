@@ -3,11 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Walk : MonoBehaviour {
-    PlayerController player;
-    // Start is called before the first frame update
-    void Start() {
-        player = GetComponent<PlayerController>();
-    }
+    public PlayerController player;
 
     private void Update() {
         player.moveDirection = player.orientation.forward * player.verticalMovement + player.orientation.right * player.horizontalMovement;

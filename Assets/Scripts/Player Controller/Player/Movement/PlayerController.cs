@@ -158,9 +158,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void _StartupAddComponents() {
-        gameObject.AddComponent<Walk>();
-        gameObject.AddComponent<Jump>();
-        gameObject.AddComponent<Sprint>();
-        gameObject.AddComponent<WallRun>();
+        gameObject.AddComponent<Walk>().player = this;
+        gameObject.AddComponent<Jump>().player = this;
+        gameObject.AddComponent<Sprint>().player = this;
+        gameObject.AddComponent<WallRun>().player = this;
+        gameObject.AddComponent<GrappleSwing>().player = this;
     }
 }

@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Jump : MonoBehaviour {
-    PlayerController player;
+    public PlayerController player;
 
     int jumpsLeft;
     // Start is called before the first frame update
     void Start() {
-        player = GetComponent<PlayerController>();
         jumpsLeft = player.extraJumps;
     }
 
