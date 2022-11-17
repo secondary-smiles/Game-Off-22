@@ -2,12 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 public class PlayerController : MonoBehaviour {
     public Animator playerAnimator;
     public Transform orientation;
     public Transform groundCheckPoint;
+    public Transform camPos;
 
     [Header("Movement")]
     public float currentMovementSpeed = 6f;
@@ -25,6 +25,13 @@ public class PlayerController : MonoBehaviour {
     [Header("Grapplegunning")]
     public Transform grappleShootPoint;
     public float maxGrappleRange;
+    public float ropeSpring;
+    public float damper;
+    public float maxPullRangeMultiplier;
+    public float minPullRangeMultiplier;
+    public float massScale;
+    
+    
 
     [Header("Jumping")]
     public float jumpStrength = 14f;
