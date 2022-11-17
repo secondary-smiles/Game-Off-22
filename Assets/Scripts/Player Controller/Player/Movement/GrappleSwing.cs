@@ -13,10 +13,8 @@ public class GrappleSwing : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        if (!ropeRenderer) {
-            ropeRenderer = gameObject.AddComponent<LineRenderer>();
-            ropeRenderer.positionCount = 0;
-        }
+        ropeRenderer = gameObject.GetComponent<LineRenderer>();
+        ropeRenderer.positionCount = 0;
     }
 
     // Update is called once per frame
@@ -41,10 +39,11 @@ public class GrappleSwing : MonoBehaviour {
 
         grappleHitPoint = hit.point;
 
-        float distance = Vector3.Distance(player.camPos.position,  grappleHitPoint);
+        float distance = Vector3.Distance(player.camPos.position, grappleHitPoint);
 
         joint = gameObject.AddComponent<SpringJoint>();
-        joint.connectedAnchor = hit.point;
+        joint.autoConfigureConnectedAnchor = false;
+        joint.connectedAnchor = grappleHitPoint;
         joint.maxDistance = player.maxPullRangeMultiplier * distance;
         joint.minDistance = player.minPullRangeMultiplier * distance;
         PopulateJoint();
@@ -62,7 +61,7 @@ public class GrappleSwing : MonoBehaviour {
     private (bool, RaycastHit) CheckGrappleRay() {
         Ray ray = new Ray(player.camPos.position, player.camPos.forward);
         RaycastHit hit;
-        bool hitSomething = Physics.Raycast(ray, out hit, player.maxGrappleRange);
+        bool hitSomething = Physics.SphereCast(ray, player.grappleAimAssist, out hit, player.maxGrappleRange);
 
         if (hitSomething && !CheckRayHitTag(hit, "NoGrapple")) {
             return (true, hit);
@@ -88,7 +87,7 @@ public class GrappleSwing : MonoBehaviour {
         if (!joint) return;
 
         grapplePos = Vector3.Lerp(grapplePos, grappleHitPoint, Time.deltaTime * player.grappleLerpSpeedMultiplier);
-        
+
         ropeRenderer.SetPosition(0, player.grappleShootPoint.position);
         ropeRenderer.SetPosition(1, grapplePos);
     }

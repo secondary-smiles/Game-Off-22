@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour {
 
     [Header("Grapplegunning")]
     public Transform grappleShootPoint;
+    public float grappleAimAssist;
     public float maxGrappleRange;
     public float ropeSpring;
     public float damper;
@@ -49,20 +50,20 @@ public class PlayerController : MonoBehaviour {
     public float maxWallDistance = 1f;
     public float maxSpeed = 140f;
 
-    [System.NonSerialized] public Vector3 moveDirection;
-    [System.NonSerialized] public Rigidbody playerBody;
+    [NonSerialized] public Vector3 moveDirection;
+    [NonSerialized] public Rigidbody playerBody;
 
-    [System.NonSerialized] public float movementMultiplier = 10f;
+    [NonSerialized] public float movementMultiplier = 10f;
 
-    [System.NonSerialized] public float horizontalMovement;
-    [System.NonSerialized] public float verticalMovement;
+    [NonSerialized] public float horizontalMovement;
+    [NonSerialized] public float verticalMovement;
 
-    [System.NonSerialized] public bool wallRunning = false;
+    [NonSerialized] public bool wallRunning = false;
 
-    [System.NonSerialized] public Wall wallData;
+    [NonSerialized] public Wall wallData;
 
-    [System.NonSerialized] public float rawMaxRecordedSpeed = 0f;
-    [System.NonSerialized] public float maxRecordedSpeed = 0f;
+    [NonSerialized] public float rawMaxRecordedSpeed = 0f;
+    [NonSerialized] public float maxRecordedSpeed = 0f;
 
     public Slope slopeData => IsGrounded();
 
