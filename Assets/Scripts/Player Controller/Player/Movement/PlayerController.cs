@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour {
     public float maxPullRangeMultiplier;
     public float minPullRangeMultiplier;
     public float massScale;
+    public float grappleLerpSpeedMultiplier;
     
     
 
