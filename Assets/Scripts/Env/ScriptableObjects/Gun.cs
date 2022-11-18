@@ -9,9 +9,9 @@ public class Gun : ScriptableObject {
     public AnimatorOverrideController animatorController;
 
     public bool autoReload = true;
-    public bool autoFire = false;
+    public bool autoFire;
 
-    public bool infAmmo = false;
+    public bool infAmmo;
 
     [Header("Gun Settings")]
     public int ammoPerMag;

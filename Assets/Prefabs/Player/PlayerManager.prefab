@@ -467,10 +467,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2871757660179031773}
   - component: {fileID: 2871757660179031772}
+  - component: {fileID: 1265419479}
   - component: {fileID: 2871757660179031771}
   - component: {fileID: 2871757660179031770}
+  - component: {fileID: 8300579690153721222}
   - component: {fileID: 2871757660179031769}
-  - component: {fileID: 1265419479}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -513,78 +514,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 3
---- !u!114 &2871757660179031771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2871757660179031774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95bc2ea78a72a4410933490f67445b6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerAnimator: {fileID: 2871757659836529369}
-  orientation: {fileID: 2871757658480201631}
-  groundCheckPoint: {fileID: 2871757658686775901}
-  camPos: {fileID: 2871757659799908690}
-  currentMovementSpeed: 6
-  groundMovementMultiplier: 10
-  airMovementMultiplier: 3
-  walkSpeed: 6
-  sprintSpeed: 12
-  timeToSprint: 90
-  wallRunGravity: 12
-  grappleShootPoint: {fileID: 2592245757053169401}
-  grappleAimAssist: 2
-  maxGrappleRange: 100
-  ropeSpring: 8
-  damper: 6
-  maxPullRangeMultiplier: 0
-  minPullRangeMultiplier: 0
-  massScale: 10
-  grappleLerpSpeedMultiplier: 8
-  jumpStrength: 14
-  extraJumps: 1
-  jumpDirection: {x: -0, y: 1, z: 0}
-  groundDrag: 6
-  airDrag: 1
-  gravity: 39.2
-  groundCheckRadius: 0.501
-  maxWallDistance: 1
-  maxSpeed: 140
---- !u!114 &2871757660179031770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2871757660179031774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fbd2fde22f3e48969f5f6b46d180ce2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sensitivity: 100
-  yInverted: 0
-  cam: {fileID: 2871757659799908690}
-  orientation: {fileID: 2871757658480201631}
---- !u!114 &2871757660179031769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2871757660179031774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d519d9f1f62f342dc85f3a9a84ba682e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tags:
-  - Player
-  - Entity
 --- !u!120 &1265419479
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -684,6 +613,90 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &2871757660179031771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2871757660179031774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95bc2ea78a72a4410933490f67445b6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAnimator: {fileID: 2871757659836529369}
+  orientation: {fileID: 2871757658480201631}
+  groundCheckPoint: {fileID: 2871757658686775901}
+  camPos: {fileID: 2871757659799908690}
+  currentMovementSpeed: 6
+  groundMovementMultiplier: 10
+  airMovementMultiplier: 3
+  walkSpeed: 6
+  sprintSpeed: 12
+  timeToSprint: 90
+  wallRunGravity: 12
+  grappleShootPoint: {fileID: 2592245757053169401}
+  grappleAimAssist: 2
+  maxGrappleRange: 100
+  ropeSpring: 8
+  damper: 6
+  maxPullRangeMultiplier: 0
+  minPullRangeMultiplier: 0
+  massScale: 10
+  grappleLerpSpeedMultiplier: 8
+  jumpStrength: 14
+  extraJumps: 1
+  jumpDirection: {x: -0, y: 1, z: 0}
+  groundDrag: 6
+  airDrag: 1
+  gravity: 39.2
+  groundCheckRadius: 0.501
+  maxWallDistance: 1
+  maxSpeed: 140
+--- !u!114 &2871757660179031770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2871757660179031774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fbd2fde22f3e48969f5f6b46d180ce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivity: 100
+  yInverted: 0
+  cam: {fileID: 2871757659799908690}
+  orientation: {fileID: 2871757658480201631}
+--- !u!114 &8300579690153721222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2871757660179031774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a6018590b7d2471d9e227b59c6ac74e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2871757660179031769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2871757660179031774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d519d9f1f62f342dc85f3a9a84ba682e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - Player
+  - Entity
 --- !u!1 &2871757660308096025
 GameObject:
   m_ObjectHideFlags: 0

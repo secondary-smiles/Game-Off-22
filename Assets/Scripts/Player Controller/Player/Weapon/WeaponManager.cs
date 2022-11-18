@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour {
+    public UIManager uiManager;
     public Gun[] weapons;
 
     public int startingWeaponIndex = 0;
