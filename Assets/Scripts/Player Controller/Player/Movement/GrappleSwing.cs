@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+    using UnityEngine;
 
 public class GrappleSwing : MonoBehaviour {
     public PlayerController player;
@@ -35,6 +32,9 @@ public class GrappleSwing : MonoBehaviour {
     private void HandleGrappleStart() {
         (bool, RaycastHit) rayCheck = CheckGrappleRay();
         if (!rayCheck.Item1) return;
+        
+        player.playerAnimator.SetBool("Grappling", true);
+        
         RaycastHit hit = rayCheck.Item2;
 
         grappleHitPoint = hit.point;
@@ -54,6 +54,7 @@ public class GrappleSwing : MonoBehaviour {
     }
 
     private void HandleGrappleStop() {
+        player.playerAnimator.SetBool("Grappling", false);
         ropeRenderer.positionCount = 0;
         Destroy(joint);
     }
