@@ -2224,6 +2224,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: fae976a60bf2a4d15a35c1bb940aedbe, type: 2}
+    - target: {fileID: 1265419479, guid: bb9296c852b8c4560967cde2c8a4536e, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1265419479, guid: bb9296c852b8c4560967cde2c8a4536e, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.03974545
+      objectReference: {fileID: 0}
     - target: {fileID: 2592245757053169401, guid: bb9296c852b8c4560967cde2c8a4536e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0343
