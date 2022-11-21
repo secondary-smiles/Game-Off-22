@@ -16,11 +16,11 @@ public class EnemyManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (canSeePlayer) return;
+        print(canSeePlayer);
     }
 
     private bool CheckCanSeePlayer() {
-        Ray ray = new Ray(transform.position, player.position);
+        Ray ray = new Ray(transform.position, (player.position - transform.position));
         RaycastHit hit;
         bool hitSomething = Physics.Raycast(ray, out hit, enemy.viewRange);
 
@@ -44,7 +44,9 @@ public class EnemyManager : MonoBehaviour {
         Vector3 direction = player.position - transform.position;
         float angle = Vector3.Angle(direction, transform.forward);
 
-        print(angle);
+        if (angle <= enemy.fovAngle) {
+            return true;
+        }
 
         return false;
     }
