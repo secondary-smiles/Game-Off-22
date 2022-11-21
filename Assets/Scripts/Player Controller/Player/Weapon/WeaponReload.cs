@@ -26,14 +26,22 @@ public class WeaponReload : MonoBehaviour {
 
     private void HandleReload() {
         if (manager.isReloading) return;
+        if (manager.activeGun.totalAmmo == 0) return;
 
         manager.animator.SetTrigger("Reload");
         reloadCoroutine = StartCoroutine(_HandleReloadAnimationHelper());
     }
 
     private void ApplyAmmoCalc() {
-        manager.activeGun.ammoInMag = manager.activeGun.ammoPerMag;
-        if (manager.activeGun.infAmmo) { manager.activeGun.totalAmmo -= manager.activeGun.ammoPerMag; }
+        int ammoToAdd = manager.activeGun.ammoPerMag;
+        if (ammoToAdd > manager.activeGun.totalAmmo) {
+            ammoToAdd = manager.activeGun.totalAmmo;
+            manager.activeGun.totalAmmo = 0;
+        } else {
+            manager.activeGun.totalAmmo -= ammoToAdd;
+        }
+        manager.activeGun.ammoInMag = ammoToAdd;
+        if (manager.activeGun.infAmmo) { manager.activeGun.totalAmmo = manager.activeGun.startingTotalAmmo; }
     }
 
     private IEnumerator _HandleReloadAnimationHelper() {

@@ -2220,30 +2220,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1265419479, guid: bb9296c852b8c4560967cde2c8a4536e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: fae976a60bf2a4d15a35c1bb940aedbe, type: 2}
-    - target: {fileID: 1265419479, guid: bb9296c852b8c4560967cde2c8a4536e, type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1265419479, guid: bb9296c852b8c4560967cde2c8a4536e, type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.03974545
-      objectReference: {fileID: 0}
-    - target: {fileID: 2592245757053169401, guid: bb9296c852b8c4560967cde2c8a4536e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.0343
-      objectReference: {fileID: 0}
-    - target: {fileID: 2592245757053169401, guid: bb9296c852b8c4560967cde2c8a4536e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.2047
-      objectReference: {fileID: 0}
-    - target: {fileID: 2592245757053169401, guid: bb9296c852b8c4560967cde2c8a4536e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.0071
-      objectReference: {fileID: 0}
     - target: {fileID: 2871757659795455809, guid: bb9296c852b8c4560967cde2c8a4536e, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2292,6 +2268,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6224922413090493298, guid: bb9296c852b8c4560967cde2c8a4536e, type: 3}
+      propertyPath: weapons.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224922413090493298, guid: bb9296c852b8c4560967cde2c8a4536e, type: 3}
+      propertyPath: weapons.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2b426c90fa2174bfc9eb31bd178a9315, type: 2}
     - target: {fileID: 8300579690153721222, guid: bb9296c852b8c4560967cde2c8a4536e, type: 3}
       propertyPath: currentCrosshair
       value: 

@@ -7,7 +7,7 @@ public class WeaponManager : MonoBehaviour {
     public UIManager uiManager;
     public Gun[] weapons;
 
-    public int startingWeaponIndex = 0;
+    public int startingWeaponIndex;
 
     [NonSerialized] public Animator animator;
 
